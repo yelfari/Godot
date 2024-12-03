@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://5qrmh34on6c"]
+
+[ext_resource type="Texture2D" uid="uid://cpiaa6m8t8xpo" path="res://art/w.png" id="1_s27ud"]
+[ext_resource type="PackedScene" uid="uid://bpivn0uajtwvv" path="res://enemies/slime.tscn" id="2_be2j3"]
+
+[node name="Battle" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(120, 65)
+scale = Vector2(0.75, 0.722222)
+texture = ExtResource("1_s27ud")
+
+[node name="slime" parent="." instance=ExtResource("2_be2j3")]
+position = Vector2(160, 64)

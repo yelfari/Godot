@@ -1,0 +1,288 @@
+[gd_scene load_steps=7 format=3 uid="uid://4xroq2hbllmk"]
+
+[ext_resource type="Texture2D" uid="uid://cpiaa6m8t8xpo" path="res://art/w.png" id="1_nafb4"]
+[ext_resource type="Script" path="res://BattleScene/UI.gd" id="2_b21uk"]
+[ext_resource type="PackedScene" uid="uid://dnlikhevppw53" path="res://player/ui.tscn" id="3_v3w28"]
+
+[sub_resource type="GDScript" id="GDScript_vcmty"]
+script/source = "extends CanvasLayer
+
+var pikachu = preload(\"res://Pokemons/Pikachu.tscn\")
+var selected = 0
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	var ui_scene = load(\"res://player/ui.tscn\") # Replace with the actual path to the UI node
+	var ui_instance = ui_scene.instantiate()	
+	#make node part of the active scene Tree
+	add_child(ui_instance)
+	var animation_player = ui_instance.get_node(\"BattleSceneTransition\")
+	animation_player.play(\"TransOut\")
+	await get_tree().create_timer(1.7).timeout
+	var enemyPokemon = pikachu.instantiate()
+	var playerPokemon = pikachu.instantiate()
+	$enemy.add_child(enemyPokemon)
+	$player.add_child(playerPokemon)
+	$PlayerUI/Menu/GridContainer/FightButton.grab_focus()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_attack_1_pressed() -> void:
+	var pokemonName = str(Game.playerPokeMons[selected][\"Name\"])
+	print_debug(pokemonName)
+	key_for_pokemon = -1
+	for key in Game.playerPokeMons.keys():
+		if Game.playerPokeMons[key][\"Name\"] == pokemon_name:
+			key_for_pokemon = key
+			break
+	var attackName = $PlayerUI/AttackMenu/GridContainer/Attack1.text
+	for i in Game.playerPokeMons[selected]:
+		if str(Game.playerPokeMons[selected][\"Name\"]) == pokemonName:
+			var dmgDealt = Game.playerPokeMons[selected][\"Attacks\"][i][\"Damage\"]
+			var healingDealt = Game.playerPokeMons[selected][\"Attacks\"][i][\"Heal\"]
+			print_debug(dmgDealt, healingDealt)
+	pass # Replace with function body.
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bratt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lukbl"]
+bg_color = Color(0.973927, 0.324263, 0.570983, 1)
+
+[node name="Battle" type="CanvasLayer"]
+process_mode = 3
+script = SubResource("GDScript_vcmty")
+
+[node name="W" type="Sprite2D" parent="."]
+position = Vector2(120, 67.5)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_nafb4")
+metadata/_edit_lock_ = true
+
+[node name="player" type="Node2D" parent="."]
+position = Vector2(75, 99)
+
+[node name="enemy" type="Node2D" parent="."]
+position = Vector2(167, 61)
+
+[node name="PlayerUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.4, 0.4)
+script = ExtResource("2_b21uk")
+
+[node name="Menu" type="HBoxContainer" parent="PlayerUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 382.5
+offset_top = 257.5
+offset_right = 666.5
+offset_bottom = 324.5
+grow_horizontal = 0
+theme_override_constants/separation = 45
+
+[node name="GridContainer" type="GridContainer" parent="PlayerUI/Menu"]
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 5
+columns = 2
+
+[node name="FightButton" type="Button" parent="PlayerUI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../SwitchButton")
+focus_neighbor_bottom = NodePath("../CaptureButton")
+action_mode = 0
+text = "Fight"
+
+[node name="SwitchButton" type="Button" parent="PlayerUI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../FightButton")
+focus_neighbor_bottom = NodePath("../FleeButton")
+text = "Switch"
+
+[node name="CaptureButton" type="Button" parent="PlayerUI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../FightButton")
+focus_neighbor_right = NodePath("../FleeButton")
+text = "Capture"
+
+[node name="FleeButton" type="Button" parent="PlayerUI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../CaptureButton")
+focus_neighbor_top = NodePath("../SwitchButton")
+text = "Flee"
+
+[node name="AttackMenu" type="HBoxContainer" parent="PlayerUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 382.5
+offset_top = 257.5
+offset_right = 666.5
+offset_bottom = 324.5
+grow_horizontal = 0
+theme_override_constants/separation = 45
+
+[node name="GridContainer" type="GridContainer" parent="PlayerUI/AttackMenu"]
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 5
+columns = 2
+
+[node name="Attack1" type="Button" parent="PlayerUI/AttackMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Attack3")
+focus_neighbor_bottom = NodePath("../Attack2")
+action_mode = 0
+text = "bla"
+
+[node name="Attack3" type="Button" parent="PlayerUI/AttackMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Attack1")
+focus_neighbor_bottom = NodePath("../Back")
+text = "Heal"
+
+[node name="Attack2" type="Button" parent="PlayerUI/AttackMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Attack1")
+focus_neighbor_right = NodePath("../Back")
+text = "Impact"
+
+[node name="Back" type="Button" parent="PlayerUI/AttackMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Attack2")
+focus_neighbor_top = NodePath("../Attack3")
+text = "Back"
+
+[node name="SwitchMenu" type="HBoxContainer" parent="PlayerUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 382.5
+offset_top = 257.5
+offset_right = 666.5
+offset_bottom = 324.5
+grow_horizontal = 0
+theme_override_constants/separation = 45
+
+[node name="GridContainer" type="GridContainer" parent="PlayerUI/SwitchMenu"]
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 5
+columns = 2
+
+[node name="Pokemon1" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Pokemon3")
+focus_neighbor_bottom = NodePath("../Pokemon2")
+action_mode = 0
+text = "Glurak"
+
+[node name="Pokemon3" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Pokemon1")
+focus_neighbor_bottom = NodePath("../Back")
+text = "Garados"
+
+[node name="Pokemon2" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Pokemon1")
+focus_neighbor_right = NodePath("../Back")
+text = "Plimfa"
+
+[node name="Back" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Pokemon2")
+focus_neighbor_top = NodePath("../Pokemon3")
+text = "Back"
+
+[node name="Info" type="Label" parent="PlayerUI"]
+layout_mode = 0
+offset_left = 382.5
+offset_top = 215.0
+offset_right = 422.5
+offset_bottom = 238.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pikachu Lvl "
+
+[node name="HPBar" type="ProgressBar" parent="PlayerUI"]
+layout_mode = 0
+offset_left = 382.5
+offset_top = 240.0
+offset_right = 537.5
+offset_bottom = 255.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_bratt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lukbl")
+value = 20.0
+show_percentage = false
+
+[node name="HpText" type="Label" parent="PlayerUI"]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 235.0
+offset_right = 633.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "10/10
+"
+
+[node name="ActionLabel" type="Label" parent="PlayerUI"]
+layout_mode = 0
+offset_left = 37.5
+offset_top = 287.5
+offset_right = 250.5
+offset_bottom = 310.5
+scale = Vector2(0.6, 0.6)
+text = "Choose an Option"
+
+[node name="MonsterUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.4, 0.4)
+
+[node name="Info" type="Label" parent="MonsterUI"]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 7.50001
+offset_right = 113.5
+offset_bottom = 30.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pikachu Lvl "
+
+[node name="ProgressBar" type="ProgressBar" parent="MonsterUI"]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 32.5
+offset_right = 167.5
+offset_bottom = 47.5
+theme_override_styles/background = SubResource("StyleBoxEmpty_bratt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lukbl")
+value = 20.0
+show_percentage = false
+
+[node name="HpText" type="Label" parent="MonsterUI"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 27.5
+offset_right = 263.0
+offset_bottom = 59.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "10/10
+"
+
+[node name="UI" parent="." instance=ExtResource("3_v3w28")]
+
+[connection signal="pressed" from="PlayerUI/Menu/GridContainer/FightButton" to="PlayerUI" method="_on_fight_button_pressed"]
+[connection signal="pressed" from="PlayerUI/Menu/GridContainer/SwitchButton" to="PlayerUI" method="_on_switch_button_pressed"]
+[connection signal="pressed" from="PlayerUI/Menu/GridContainer/FleeButton" to="PlayerUI" method="_on_flee_button_pressed"]
+[connection signal="pressed" from="PlayerUI/AttackMenu/GridContainer/Attack1" to="." method="_on_attack_1_pressed"]
+[connection signal="pressed" from="PlayerUI/AttackMenu/GridContainer/Back" to="PlayerUI" method="_on_back_pressed"]
+[connection signal="pressed" from="PlayerUI/SwitchMenu/GridContainer/Back" to="PlayerUI" method="_on_back_pressed"]
