@@ -21,7 +21,6 @@ Game="*res://Global/Game.gd"
 Utils="*res://Global/Utils.gd"
 BattleLogic="*res://Global/BattleLogic.gd"
 TurnController="*res://Global/TurnController.gd"
-GlobalTileMap="*res://world/tileMapScript.gd"
 
 [display]
 

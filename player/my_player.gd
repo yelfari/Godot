@@ -8,7 +8,7 @@ class_name Player
 @export var maxHealth = 20
 @onready var currentHealth: int  =  maxHealth
 @export var knockbackpower = 1000
-
+var battle = preload("res://BattleScene/Battle.tscn")
 var last_tile_position = Vector2(-1, -1)
 var battle_initiated = false
 #try to access slimebattlescene
@@ -18,7 +18,7 @@ var currentTile
 func _ready():
 	currentTile
 	tileMap = %TileMapStartingArea
-	var tile_set = tileMap.tile_set
+	#var tile_set = tileMap.tile_set
 	#print_debug(tile_set)
 	healthbar.init_health(maxHealth)
 	healthbar.visible = false
@@ -59,10 +59,31 @@ func handleTileData():
 	mytileData = tileMap.get_cell_tile_data(1,playerMapPosition)
 	var layername = tileMap.get_layer_name(1)
 	if mytileData != currentTile:
+		var randomInt = randi_range(1,10)
+		print_debug(randomInt)
+		if randomInt > 1:
+			var ui_scene = load("res://player/ui.tscn") # Replace with the actual path to the UI node
+			var ui_instance = ui_scene.instantiate()	
+			#make node part of the active scene Tree
+			add_child(ui_instance)
+			var animation_player = ui_instance.get_node("BattleSceneTransition")
+			animation_player.play("TransIn")
+			get_tree().paused = true
+			await get_tree().create_timer(1.4).timeout
+			#$"../spriteSlime".visible = false
+			var battleTemp = battle.instantiate()
+			get_parent().add_child(battleTemp)
+			
+			get_tree().change_scene_to_file("res://BattleScene/Battle.tscn")
+			#queue_free()
+			
+		
+			
 		print("different tile")
 		currentTile = mytileData
-	#print_debug(mytileData)
+#print_debug(mytileData)
 	#pokemonSpawners <TileData#43318773508>, <TileData#43201332989>, <TileData#43285219074>,<TileData#43268441857>,<TileData#43251664640>
+	
 	
 		
 func _physics_process(_delta):

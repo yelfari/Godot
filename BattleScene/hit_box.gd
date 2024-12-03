@@ -1,7 +1,6 @@
 extends Area2D
 
 var battle = preload("res://BattleScene/Battle.tscn")
-@export var BattleSceneTransition: Animation
 
 func _on_area_entered(area: Area2D):
 	if area.name == "hurtBox":
@@ -13,7 +12,6 @@ func _on_area_entered(area: Area2D):
 		animation_player.play("TransIn")
 		get_tree().paused = true
 		await get_tree().create_timer(1.4).timeout
-		$"../spriteSlime".visible = false
 		var battleTemp = battle.instantiate()
 		get_parent().add_child(battleTemp)
 		queue_free()

@@ -33,13 +33,18 @@ func _on_flee_button_pressed() -> void:
 	var animation_player = ui_instance.get_node("BattleSceneTransition")
 	animation_player.play("TransIn")
 	await get_tree().create_timer(1.5).timeout
+	get_tree().paused = false
+	animation_player.play("TransOut")
+	get_parent().visible = false
+	get_tree().change_scene_to_file("res://world/world.tscn")
 	
 	#await get_tree().create_timer(3).timeout
-	#get_parent().queue_free()
+
 	
-	get_parent().visible = false
-	animation_player.play("TransOut")
-	get_tree().paused = false
+	#get_parent().visible = false
+	#animation_player.play("TransOut")
+	#get_tree().paused = false
+	#get_parent().queue_free()
 func _process(delta: float) -> void:
 	$HPBar.value = Game.playerPokeMons[get_parent().selected]["Health"]
 	$Info.text = str(Game.playerPokeMons[get_parent().selected]["Name"]) + " L" + str(Game.playerPokeMons[get_parent().selected]["lvl"])
