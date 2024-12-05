@@ -18,8 +18,6 @@ var currentTile
 func _ready():
 	currentTile
 	tileMap = %TileMapStartingArea
-	#var tile_set = tileMap.tile_set
-	#print_debug(tile_set)
 	healthbar.init_health(maxHealth)
 	healthbar.visible = false
 
@@ -29,7 +27,7 @@ func handeInput():
 	var moveDirection = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = moveDirection * speed
 	################################################################################################
-	#Open Pokemon Inventory
+	#Open Pokedox
 	#if Input.is_key_pressed(KEY_P):
 		
 		#pass
@@ -57,6 +55,7 @@ func handleTileData():
 	#print(player_position)
 	var playerMapPosition = tileMap.local_to_map(player_position)
 	mytileData = tileMap.get_cell_tile_data(1,playerMapPosition)
+	print_debug(mytileData)
 	var layername = tileMap.get_layer_name(1)
 	if mytileData != currentTile:
 		var randomInt = randi_range(1,10)
@@ -70,20 +69,18 @@ func handleTileData():
 			animation_player.play("TransIn")
 			get_tree().paused = true
 			await get_tree().create_timer(1.4).timeout
-			#$"../spriteSlime".visible = false
 			var battleTemp = battle.instantiate()
 			get_parent().add_child(battleTemp)
-			
-			get_tree().change_scene_to_file("res://BattleScene/Battle.tscn")
-			#queue_free()
+			#get_tree().change_scene_to_file("res://BattleScene/Battle.tscn")
+			#queue_free() would destroy the PlayerNode
+			ui_instance.queue_free()
 			
 		
 			
 		print("different tile")
 		currentTile = mytileData
-#print_debug(mytileData)
 	#pokemonSpawners <TileData#43318773508>, <TileData#43201332989>, <TileData#43285219074>,<TileData#43268441857>,<TileData#43251664640>
-	
+	#this doesnt work somehow the TileData changed after restarting
 	
 		
 func _physics_process(_delta):

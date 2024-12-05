@@ -3,6 +3,7 @@ extends Node
 func _ready():
 	Game.addPokemon("Plimfa")
 	Game.addPokemon("Pikachu")
+	Game.addPokemon("Squirtle")
 
 
 	
@@ -66,7 +67,42 @@ var dataBasePokemon = {
 				"cost": 4
 				}
 			}
+		},
+3 : {
+		"Name": "Squirtle",
+		"Health": 100,
+		"lvl": 3,
+		"Xp": 0,
+		"MaxXp" : 10,
+		"Strength": 10,
+		"Defense": 15,
+		#"Scene": preload("res://art/tiv5b4bs.bmp"),
+		"Attacks": {
+			0 : {
+				"Name" : "BlitzBlasttt",
+				"Target": "Monster",
+				"Damage": 10,
+				"Heal": 0,
+				"cost" : 2,
+				},
+			1 : {
+				"Name": "Blitzheal",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				},
+			2 : {
+				"Name": "BlitzAngst",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				}
+			}
 		}
+
+
 
 }
 

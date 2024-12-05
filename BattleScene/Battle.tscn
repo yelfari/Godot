@@ -8,7 +8,8 @@
 script/source = "extends CanvasLayer
 
 var pikachu = preload(\"res://Pokemons/PikachuOrdner/Pikachu.tscn\")
-var plimfa = preload(\"res://Pokemons/PlimfaOrdner/Plimfa.tscn\")
+var plinfa = preload(\"res://Pokemons/PlimfaOrdner/Plimfa.tscn\")
+var schiggy = preload(\"res://Pokemons/SchiggyOrdner/Schiggy.tscn\")
 var selected = 0 #Sets the selected Pokemon
 # Called when the node enters the scene tree for the first time.
 
@@ -28,7 +29,7 @@ func _ready() -> void:
 	$enemy.add_child(enemyPokemon)
 	await get_tree().create_timer(1.7).timeout
 	#spawn player Pokemon
-	var playerPokemon = plimfa.instantiate()
+	var playerPokemon = schiggy.instantiate()
 	$player.add_child(playerPokemon)
 	$PlayerUI/Menu/GridContainer/FightButton.grab_focus()
 
@@ -38,7 +39,8 @@ func _process(delta: float) -> void:
 
 
 func _on_attack_1_pressed() -> void:
-	#character which was encountered in Overworld
+	#character which was encountered in Overworld 
+	#TODO character are accessed through the terrain
 	var encounteredPokemon = get_parent().character_name
 	
 	var pokemonName = str(Game.playerPokeMons[selected][\"Name\"])

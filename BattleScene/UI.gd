@@ -23,6 +23,7 @@ func _on_switch_button_pressed() -> void:
 	$SwitchMenu/GridContainer/Pokemon1.grab_focus()
 	$ActionLabel.text = "Switch Your Pokemon!"
 	
+	
 func _on_flee_button_pressed() -> void:
 	$ActionLabel.text = str(Game.playerPokeMons[get_parent().selected]["Name"]) + " is fleeing"
 	#await get_tree().create_timer(1).timeout
@@ -36,15 +37,12 @@ func _on_flee_button_pressed() -> void:
 	get_tree().paused = false
 	animation_player.play("TransOut")
 	get_parent().visible = false
-	get_tree().change_scene_to_file("res://world/world.tscn")
-	
-	#await get_tree().create_timer(3).timeout
-
-	
-	#get_parent().visible = false
-	#animation_player.play("TransOut")
-	#get_tree().paused = false
-	#get_parent().queue_free()
+	await get_tree().create_timer(1.5).timeout
+	#get_tree().change_scene_to_file("res://world/world.tscn") MAY BE USEFUL FOR NEW LVL STARTS OR TELEPORTS
+	#continues logic in world now
+	get_tree().paused = false
+	#deletes the battleNode from Remote
+	queue_free() 
 func _process(delta: float) -> void:
 	$HPBar.value = Game.playerPokeMons[get_parent().selected]["Health"]
 	$Info.text = str(Game.playerPokeMons[get_parent().selected]["Name"]) + " L" + str(Game.playerPokeMons[get_parent().selected]["lvl"])

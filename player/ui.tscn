@@ -166,8 +166,8 @@ libraries = {
 [node name="BG" type="Panel" parent="."]
 show_behind_parent = true
 z_index = -1
-offset_left = -21.0
-offset_top = -56.0
-offset_right = 263.0
-offset_bottom = 192.0
+offset_left = -324.0
+offset_top = -137.0
+offset_right = -40.0
+offset_bottom = 111.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fc14k")
