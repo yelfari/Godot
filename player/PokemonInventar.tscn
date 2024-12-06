@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://oi0g3fl8c3sc"]
+
+[ext_resource type="Script" path="res://player/pokemon_inventar.gd" id="1_co2gj"]
+[ext_resource type="Texture2D" uid="uid://bj5gn8pnrkppw" path="res://art/Pokemon/Inventar/GrossenMenü-removebg.png" id="1_hufrb"]
+[ext_resource type="Texture2D" uid="uid://c3rwgbtwpux6k" path="res://art/Pokemon/Inventar/Selector-removebg.png" id="2_d8vbo"]
+[ext_resource type="Texture2D" uid="uid://dgufnhwl0wfc7" path="res://icon.svg" id="4_aaaay"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hpnc"]
+bg_color = Color(0.992394, 0.918414, 0.82185, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0t7e"]
+bg_color = Color(0.705612, 0, 0.176303, 1)
+
+[node name="pokemonMenüs" type="CanvasLayer"]
+script = ExtResource("1_co2gj")
+
+[node name="MenuBackground" type="Sprite2D" parent="."]
+position = Vector2(117.75, 67.5)
+scale = Vector2(0.293269, 0.307443)
+texture = ExtResource("1_hufrb")
+
+[node name="PokemonMenuHolder1" type="Sprite2D" parent="MenuBackground"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-70, -120)
+scale = Vector2(1, 0.767)
+texture = ExtResource("2_d8vbo")
+
+[node name="Pokemon1" type="Sprite2D" parent="MenuBackground/PokemonMenuHolder1"]
+texture_filter = 2
+texture_repeat = 3
+position = Vector2(-72.3606, -2.57326)
+scale = Vector2(0.258197, 0.274088)
+texture = ExtResource("4_aaaay")
+
+[node name="HpBar" type="ProgressBar" parent="MenuBackground/PokemonMenuHolder1"]
+offset_left = -10.9836
+offset_top = -19.5361
+offset_right = 81.0164
+offset_bottom = -11.5361
+theme_override_styles/background = SubResource("StyleBoxFlat_3hpnc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p0t7e")
+value = 40.0
+show_percentage = false
+
+[node name="PokemonMenuHolder2" type="Sprite2D" parent="MenuBackground"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-70, -80)
+scale = Vector2(1, 0.767)
+texture = ExtResource("2_d8vbo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="MenuBackground/PokemonMenuHolder2"]
+texture_filter = 2
+texture_repeat = 3
+position = Vector2(-72.3607, -3.83587)
+scale = Vector2(0.258197, 0.274088)
+texture = ExtResource("4_aaaay")
+
+[node name="PokemonMenuHolder3" type="Sprite2D" parent="MenuBackground"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-70, -40)
+scale = Vector2(1, 0.767)
+texture = ExtResource("2_d8vbo")
+
+[node name="Sprite2D3" type="Sprite2D" parent="MenuBackground/PokemonMenuHolder3"]
+texture_filter = 2
+texture_repeat = 3
+position = Vector2(-72.3607, -0.857754)
+scale = Vector2(0.258197, 0.274088)
+texture = ExtResource("4_aaaay")
+
+[node name="Selector-removebg4" type="Sprite2D" parent="MenuBackground"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-70, 0)
+scale = Vector2(1, 0.767)
+texture = ExtResource("2_d8vbo")

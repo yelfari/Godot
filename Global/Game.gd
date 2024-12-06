@@ -1,7 +1,7 @@
 extends Node
 
 func _ready():
-	Game.addPokemon("Plimfa")
+	Game.addPokemon("Plinfa")
 	Game.addPokemon("Pikachu")
 	Game.addPokemon("Squirtle")
 
@@ -10,7 +10,7 @@ func _ready():
 	
 var dataBasePokemon = {
 	0 : {
-		"Name": "Plimfa",
+		"Name": "Plinfa",
 		"Health": 100,
 		"lvl": 2,
 		"Xp": 0,
@@ -127,5 +127,13 @@ func addEXP(amount):
 			amount -= playerPokeMons[i]["MaxXp"]
 			playerPokeMons[i]["MaxXp"] = playerPokeMons[i]["MaxXp"] + 5
 		playerPokeMons[i]["Xp"] = amount	
+
+func getPlayerPokemon(): 
+	var playerPokemonNameList = []
+	for i in playerPokeMons:
+		playerPokemonNameList.append(playerPokeMons[i]["Name"])
+	return playerPokemonNameList
+		
+	
 
 	
