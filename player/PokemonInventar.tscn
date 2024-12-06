@@ -1,9 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://oi0g3fl8c3sc"]
+[gd_scene load_steps=9 format=3 uid="uid://oi0g3fl8c3sc"]
 
 [ext_resource type="Script" path="res://player/pokemon_inventar.gd" id="1_co2gj"]
-[ext_resource type="Texture2D" uid="uid://bj5gn8pnrkppw" path="res://art/Pokemon/Inventar/GrossenMenü-removebg.png" id="1_hufrb"]
 [ext_resource type="Texture2D" uid="uid://c3rwgbtwpux6k" path="res://art/Pokemon/Inventar/Selector-removebg.png" id="2_d8vbo"]
 [ext_resource type="Texture2D" uid="uid://dgufnhwl0wfc7" path="res://icon.svg" id="4_aaaay"]
+
+[sub_resource type="FontFile" id="FontFile_0g0mj"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_nsywu"]
+default_font = SubResource("FontFile_0g0mj")
+CodeEdit/colors/j = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jkfvv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hpnc"]
 bg_color = Color(0.992394, 0.918414, 0.82185, 1)
@@ -14,10 +26,41 @@ bg_color = Color(0.705612, 0, 0.176303, 1)
 [node name="pokemonMenüs" type="CanvasLayer"]
 script = ExtResource("1_co2gj")
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 240.0
+offset_bottom = 135.0
+theme = SubResource("Theme_nsywu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 110.0
+offset_bottom = 134.0
+
+[node name="Tree" type="Tree" parent="Control/VBoxContainer"]
+layout_mode = 2
+column_titles_visible = true
+allow_reselect = true
+allow_search = false
+scroll_vertical_enabled = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Control"]
+show_behind_parent = true
+position = Vector2(370, 67)
+color = Color(0.0773022, 0.210384, 0.223592, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control/CanvasModulate"]
+offset_left = -371.0
+offset_top = -68.0
+offset_right = -131.0
+offset_bottom = 67.0
+texture = SubResource("CanvasTexture_jkfvv")
+metadata/_edit_lock_ = true
+
 [node name="MenuBackground" type="Sprite2D" parent="."]
-position = Vector2(117.75, 67.5)
-scale = Vector2(0.293269, 0.307443)
-texture = ExtResource("1_hufrb")
+position = Vector2(120, 76.2304)
+scale = Vector2(0.46875, 5.5391)
 
 [node name="PokemonMenuHolder1" type="Sprite2D" parent="MenuBackground"]
 self_modulate = Color(0, 0, 0, 1)
@@ -70,6 +113,6 @@ texture = ExtResource("4_aaaay")
 
 [node name="Selector-removebg4" type="Sprite2D" parent="MenuBackground"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(-70, 0)
+position = Vector2(486.4, 4.6523)
 scale = Vector2(1, 0.767)
 texture = ExtResource("2_d8vbo")

@@ -128,7 +128,14 @@ func addEXP(amount):
 			playerPokeMons[i]["MaxXp"] = playerPokeMons[i]["MaxXp"] + 5
 		playerPokeMons[i]["Xp"] = amount	
 
-func getPlayerPokemon(): 
+
+func getPlayerPokemonEntry(pokemonName):
+	print_debug(playerPokeMons)
+	for i in playerPokeMons:
+		print_debug(playerPokeMons[i])
+		return playerPokeMons[i] if playerPokeMons[i]["Name"] == pokemonName else "No such Pokemon found in your Inventory"
+	
+func getPlayerPokemonNames(): 
 	var playerPokemonNameList = []
 	for i in playerPokeMons:
 		playerPokemonNameList.append(playerPokeMons[i]["Name"])
