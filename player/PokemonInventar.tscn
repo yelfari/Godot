@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://oi0g3fl8c3sc"]
+[gd_scene load_steps=10 format=3 uid="uid://oi0g3fl8c3sc"]
 
 [ext_resource type="Script" path="res://player/pokemon_inventar.gd" id="1_co2gj"]
-[ext_resource type="Texture2D" uid="uid://c3rwgbtwpux6k" path="res://art/Pokemon/Inventar/Selector-removebg.png" id="2_d8vbo"]
-[ext_resource type="Texture2D" uid="uid://dgufnhwl0wfc7" path="res://icon.svg" id="4_aaaay"]
+[ext_resource type="Texture2D" uid="uid://cwe2m5qysl1yx" path="res://art/mudkip.png" id="2_0j55g"]
 
 [sub_resource type="FontFile" id="FontFile_0g0mj"]
 cache/0/16/0/ascent = 0.0
@@ -17,11 +16,16 @@ CodeEdit/colors/j = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_jkfvv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hpnc"]
-bg_color = Color(0.992394, 0.918414, 0.82185, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjm6j"]
+bg_color = Color(0.28125, 0.243896, 0.243896, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0t7e"]
-bg_color = Color(0.705612, 0, 0.176303, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pame0"]
+bg_color = Color(0.789063, 0.0308228, 0.0308228, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82qpu"]
+bg_color = Color(0.282353, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cug71"]
 
 [node name="pokemonMenüs" type="CanvasLayer"]
 script = ExtResource("1_co2gj")
@@ -33,86 +37,104 @@ offset_right = 240.0
 offset_bottom = 135.0
 theme = SubResource("Theme_nsywu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 110.0
-offset_bottom = 134.0
-
-[node name="Tree" type="Tree" parent="Control/VBoxContainer"]
-layout_mode = 2
-column_titles_visible = true
-allow_reselect = true
-allow_search = false
-scroll_vertical_enabled = false
-
 [node name="CanvasModulate" type="CanvasModulate" parent="Control"]
 show_behind_parent = true
 position = Vector2(370, 67)
-color = Color(0.0773022, 0.210384, 0.223592, 1)
 
-[node name="TextureRect" type="TextureRect" parent="Control/CanvasModulate"]
-offset_left = -371.0
-offset_top = -68.0
-offset_right = -131.0
-offset_bottom = 67.0
+[node name="Background" type="TextureRect" parent="Control/CanvasModulate"]
+modulate = Color(0.0606537, 0.156847, 0.292969, 1)
+offset_left = -370.0
+offset_top = -67.0
+offset_right = -130.0
+offset_bottom = 68.0
 texture = SubResource("CanvasTexture_jkfvv")
-metadata/_edit_lock_ = true
 
-[node name="MenuBackground" type="Sprite2D" parent="."]
-position = Vector2(120, 76.2304)
-scale = Vector2(0.46875, 5.5391)
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(20, 20)
+offset_left = 23.0
+offset_top = 12.0
+offset_right = 84.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="PokemonMenuHolder1" type="Sprite2D" parent="MenuBackground"]
-self_modulate = Color(0, 0, 0, 1)
-position = Vector2(-70, -120)
-scale = Vector2(1, 0.767)
-texture = ExtResource("2_d8vbo")
+[node name="ColorRect" type="ColorRect" parent="Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
 
-[node name="Pokemon1" type="Sprite2D" parent="MenuBackground/PokemonMenuHolder1"]
-texture_filter = 2
-texture_repeat = 3
-position = Vector2(-72.3606, -2.57326)
-scale = Vector2(0.258197, 0.274088)
-texture = ExtResource("4_aaaay")
+[node name="PokemonTexture" type="TextureRect" parent="Control/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 16.0
+offset_bottom = 17.0
+texture = ExtResource("2_0j55g")
+expand_mode = 1
 
-[node name="HpBar" type="ProgressBar" parent="MenuBackground/PokemonMenuHolder1"]
-offset_left = -10.9836
-offset_top = -19.5361
-offset_right = 81.0164
-offset_bottom = -11.5361
-theme_override_styles/background = SubResource("StyleBoxFlat_3hpnc")
-theme_override_styles/fill = SubResource("StyleBoxFlat_p0t7e")
-value = 40.0
+[node name="PokemonHP" type="ProgressBar" parent="Control/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 3.0
+offset_right = 58.0
+offset_bottom = 5.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vjm6j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pame0")
+value = 20.0
 show_percentage = false
 
-[node name="PokemonMenuHolder2" type="Sprite2D" parent="MenuBackground"]
-self_modulate = Color(0, 0, 0, 1)
-position = Vector2(-70, -80)
-scale = Vector2(1, 0.767)
-texture = ExtResource("2_d8vbo")
+[node name="PokemonName" type="Label" parent="Control/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 1.0
+offset_right = 133.0
+offset_bottom = 24.0
+scale = Vector2(0.1, 0.1)
+text = "Pokemon Name"
 
-[node name="Sprite2D2" type="Sprite2D" parent="MenuBackground/PokemonMenuHolder2"]
-texture_filter = 2
-texture_repeat = 3
-position = Vector2(-72.3607, -3.83587)
-scale = Vector2(0.258197, 0.274088)
-texture = ExtResource("4_aaaay")
+[node name="PokemonHPText" type="Label" parent="Control/VBoxContainer/ColorRect"]
+offset_left = 54.0
+offset_top = 6.0
+offset_right = 114.0
+offset_bottom = 29.0
+scale = Vector2(0.1, 0.1)
+text = "X/X HP"
 
-[node name="PokemonMenuHolder3" type="Sprite2D" parent="MenuBackground"]
-self_modulate = Color(0, 0, 0, 1)
-position = Vector2(-70, -40)
-scale = Vector2(1, 0.767)
-texture = ExtResource("2_d8vbo")
+[node name="PokemonXP" type="ProgressBar" parent="Control/VBoxContainer/ColorRect"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 58.0
+offset_bottom = 19.0
+theme_override_styles/background = SubResource("StyleBoxFlat_82qpu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cug71")
+value = 20.0
+show_percentage = false
 
-[node name="Sprite2D3" type="Sprite2D" parent="MenuBackground/PokemonMenuHolder3"]
-texture_filter = 2
-texture_repeat = 3
-position = Vector2(-72.3607, -0.857754)
-scale = Vector2(0.258197, 0.274088)
-texture = ExtResource("4_aaaay")
+[node name="PokemonXPText" type="Label" parent="Control/VBoxContainer/ColorRect"]
+offset_left = 54.0
+offset_top = 15.0
+offset_right = 114.0
+offset_bottom = 38.0
+scale = Vector2(0.1, 0.1)
+text = "X/X XP"
 
-[node name="Selector-removebg4" type="Sprite2D" parent="MenuBackground"]
-self_modulate = Color(0, 0, 0, 1)
-position = Vector2(486.4, 4.6523)
-scale = Vector2(1, 0.767)
-texture = ExtResource("2_d8vbo")
+[node name="ColorRect2" type="ColorRect" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="ColorRect3" type="ColorRect" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="ColorRect4" type="ColorRect" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="ColorRect5" type="ColorRect" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)

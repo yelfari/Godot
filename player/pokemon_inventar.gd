@@ -12,6 +12,8 @@ func _ready() -> void:
 	print_debug(playerPokemon1)
 	# Reference to the Tree node
 	var tree = $Control/VBoxContainer/Tree
+	
+	
 
 func _process(delta: float) -> void:
 	pass
