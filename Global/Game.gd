@@ -3,7 +3,7 @@ extends Node
 func _ready():
 	Game.addPokemon("Plinfa")
 	Game.addPokemon("Pikachu")
-	Game.addPokemon("Squirtle")
+	Game.addPokemon("Schiggy")
 
 
 	
@@ -12,6 +12,7 @@ var dataBasePokemon = {
 	0 : {
 		"Name": "Plinfa",
 		"Health": 100,
+		"CurrentHealth" : 80,
 		"lvl": 2,
 		"Xp": 0,
 		"MaxXp" : 10,
@@ -38,6 +39,7 @@ var dataBasePokemon = {
 	1 : {
 		"Name": "Pikachu",
 		"Health": 100,
+		"CurrentHealth" : 50,
 		"lvl": 3,
 		"Xp": 0,
 		"MaxXp" : 10,
@@ -69,8 +71,9 @@ var dataBasePokemon = {
 			}
 		},
 3 : {
-		"Name": "Squirtle",
+		"Name": "Schiggy",
 		"Health": 100,
+		"CurrentHealth" : 100,
 		"lvl": 3,
 		"Xp": 0,
 		"MaxXp" : 10,

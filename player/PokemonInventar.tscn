@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://oi0g3fl8c3sc"]
+[gd_scene load_steps=9 format=3 uid="uid://oi0g3fl8c3sc"]
 
 [ext_resource type="Script" path="res://player/pokemon_inventar.gd" id="1_co2gj"]
-[ext_resource type="Texture2D" uid="uid://cwe2m5qysl1yx" path="res://art/mudkip.png" id="2_0j55g"]
 
 [sub_resource type="FontFile" id="FontFile_0g0mj"]
 cache/0/16/0/ascent = 0.0
@@ -30,50 +29,59 @@ bg_color = Color(0.282353, 0.243137, 0.243137, 1)
 [node name="pokemonMenüs" type="CanvasLayer"]
 script = ExtResource("1_co2gj")
 
-[node name="Control" type="Control" parent="."]
+[node name="UIControl" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 240.0
-offset_bottom = 135.0
+anchor_left = -0.272
+anchor_top = 0.087
+anchor_right = -0.272
+anchor_bottom = 0.087
+offset_left = 65.28
+offset_top = -11.745
+offset_right = 305.28
+offset_bottom = 123.255
 theme = SubResource("Theme_nsywu")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="Control"]
+[node name="Backgrounds" type="CanvasModulate" parent="UIControl"]
 show_behind_parent = true
 position = Vector2(370, 67)
 
-[node name="Background" type="TextureRect" parent="Control/CanvasModulate"]
+[node name="MenuBackground" type="TextureRect" parent="UIControl/Backgrounds"]
 modulate = Color(0.0606537, 0.156847, 0.292969, 1)
+offset_left = -348.0
+offset_top = -51.0
+offset_right = -152.0
+offset_bottom = 52.0
+texture = SubResource("CanvasTexture_jkfvv")
+
+[node name="TransparentBackground" type="ColorRect" parent="UIControl/Backgrounds"]
+z_index = -1
 offset_left = -370.0
 offset_top = -67.0
 offset_right = -130.0
 offset_bottom = 68.0
-texture = SubResource("CanvasTexture_jkfvv")
+color = Color(0.171875, 0.161133, 0.161133, 0.471)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-custom_minimum_size = Vector2(20, 20)
-offset_left = 23.0
-offset_top = 12.0
-offset_right = 84.0
-offset_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="GridContainer" type="GridContainer" parent="UIControl"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 74.0
+offset_right = 214.0
+offset_bottom = 118.0
+columns = 3
 
-[node name="ColorRect" type="ColorRect" parent="Control/VBoxContainer"]
+[node name="Pokemon0Container" type="ColorRect" parent="UIControl/GridContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(60, 20)
 layout_mode = 2
 color = Color(0.243137, 0.172549, 0.172549, 0.521569)
 
-[node name="PokemonTexture" type="TextureRect" parent="Control/VBoxContainer/ColorRect"]
+[node name="PokemonTexture" type="TextureRect" parent="UIControl/GridContainer/Pokemon0Container"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 16.0
-offset_bottom = 17.0
-texture = ExtResource("2_0j55g")
-expand_mode = 1
+offset_right = 18.0
+offset_bottom = 20.0
+expand_mode = 2
 
-[node name="PokemonHP" type="ProgressBar" parent="Control/VBoxContainer/ColorRect"]
+[node name="PokemonHP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon0Container"]
 layout_mode = 0
 offset_left = 36.0
 offset_top = 3.0
@@ -84,7 +92,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_pame0")
 value = 20.0
 show_percentage = false
 
-[node name="PokemonName" type="Label" parent="Control/VBoxContainer/ColorRect"]
+[node name="PokemonName" type="Label" parent="UIControl/GridContainer/Pokemon0Container"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 1.0
@@ -93,15 +101,17 @@ offset_bottom = 24.0
 scale = Vector2(0.1, 0.1)
 text = "Pokemon Name"
 
-[node name="PokemonHPText" type="Label" parent="Control/VBoxContainer/ColorRect"]
-offset_left = 54.0
+[node name="PokemonHPText" type="Label" parent="UIControl/GridContainer/Pokemon0Container"]
+layout_mode = 0
+offset_left = 52.0
 offset_top = 6.0
-offset_right = 114.0
+offset_right = 112.0
 offset_bottom = 29.0
 scale = Vector2(0.1, 0.1)
 text = "X/X HP"
 
-[node name="PokemonXP" type="ProgressBar" parent="Control/VBoxContainer/ColorRect"]
+[node name="PokemonXP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon0Container"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 18.0
 offset_right = 58.0
@@ -111,7 +121,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_cug71")
 value = 20.0
 show_percentage = false
 
-[node name="PokemonXPText" type="Label" parent="Control/VBoxContainer/ColorRect"]
+[node name="PokemonXPText" type="Label" parent="UIControl/GridContainer/Pokemon0Container"]
+layout_mode = 0
 offset_left = 54.0
 offset_top = 15.0
 offset_right = 114.0
@@ -119,22 +130,561 @@ offset_bottom = 38.0
 scale = Vector2(0.1, 0.1)
 text = "X/X XP"
 
-[node name="ColorRect2" type="ColorRect" parent="Control/VBoxContainer"]
+[node name="Pokemon0Button" type="Button" parent="UIControl/GridContainer/Pokemon0Container"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 20.0
+focus_neighbor_left = NodePath("../../Pokemon2Container/Pokemon2Button")
+focus_neighbor_top = NodePath("../../Pokemon3Container/Pokemon3Button")
+focus_neighbor_right = NodePath("../../Pokemon1Container/Pokemon1Button")
+focus_neighbor_bottom = NodePath("../../Pokemon3Container/Pokemon3Button")
+flat = true
+
+[node name="Pokemon1Container" type="ColorRect" parent="UIControl/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 20)
+layout_mode = 2
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="PokemonTexture" type="TextureRect" parent="UIControl/GridContainer/Pokemon1Container"]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 20.0
+expand_mode = 2
+
+[node name="PokemonHP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon1Container"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 3.0
+offset_right = 58.0
+offset_bottom = 5.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vjm6j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pame0")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonName" type="Label" parent="UIControl/GridContainer/Pokemon1Container"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 1.0
+offset_right = 133.0
+offset_bottom = 24.0
+scale = Vector2(0.1, 0.1)
+text = "Pokemon Name"
+
+[node name="PokemonHPText" type="Label" parent="UIControl/GridContainer/Pokemon1Container"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 6.0
+offset_right = 111.0
+offset_bottom = 29.0
+scale = Vector2(0.1, 0.1)
+text = "X/X HP"
+
+[node name="PokemonXP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon1Container"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 58.0
+offset_bottom = 19.0
+theme_override_styles/background = SubResource("StyleBoxFlat_82qpu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cug71")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonXPText" type="Label" parent="UIControl/GridContainer/Pokemon1Container"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 15.0
+offset_right = 114.0
+offset_bottom = 38.0
+scale = Vector2(0.1, 0.1)
+text = "X/X XP"
+
+[node name="Pokemon1Button" type="Button" parent="UIControl/GridContainer/Pokemon1Container"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 20.0
+focus_neighbor_left = NodePath("../../Pokemon0Container/Pokemon0Button")
+focus_neighbor_top = NodePath("../../Pokemon4Container/Pokemon4Button")
+focus_neighbor_right = NodePath("../../Pokemon2Container/Pokemon2Button")
+focus_neighbor_bottom = NodePath("../../Pokemon4Container/Pokemon4Button")
+flat = true
+
+[node name="Pokemon2Container" type="ColorRect" parent="UIControl/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 20)
+layout_mode = 2
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="PokemonTexture" type="TextureRect" parent="UIControl/GridContainer/Pokemon2Container"]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 20.0
+expand_mode = 2
+
+[node name="PokemonHP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon2Container"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 3.0
+offset_right = 58.0
+offset_bottom = 5.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vjm6j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pame0")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonName" type="Label" parent="UIControl/GridContainer/Pokemon2Container"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 1.0
+offset_right = 133.0
+offset_bottom = 24.0
+scale = Vector2(0.1, 0.1)
+text = "Pokemon Name"
+
+[node name="PokemonHPText" type="Label" parent="UIControl/GridContainer/Pokemon2Container"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 6.0
+offset_right = 112.0
+offset_bottom = 29.0
+scale = Vector2(0.1, 0.1)
+text = "X/X HP"
+
+[node name="PokemonXP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon2Container"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 58.0
+offset_bottom = 19.0
+theme_override_styles/background = SubResource("StyleBoxFlat_82qpu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cug71")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonXPText" type="Label" parent="UIControl/GridContainer/Pokemon2Container"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 15.0
+offset_right = 114.0
+offset_bottom = 38.0
+scale = Vector2(0.1, 0.1)
+text = "X/X XP"
+
+[node name="Pokemon2Button" type="Button" parent="UIControl/GridContainer/Pokemon2Container"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 20.0
+focus_neighbor_left = NodePath("../../Pokemon1Container/Pokemon1Button")
+focus_neighbor_top = NodePath("../../Pokemon5Container/Pokemon5Button")
+focus_neighbor_right = NodePath("../../Pokemon0Container/Pokemon0Button")
+focus_neighbor_bottom = NodePath("../../Pokemon5Container/Pokemon5Button")
+flat = true
+
+[node name="Pokemon3Container" type="ColorRect" parent="UIControl/GridContainer"]
+clip_contents = true
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 color = Color(0.243137, 0.172549, 0.172549, 0.521569)
 
-[node name="ColorRect3" type="ColorRect" parent="Control/VBoxContainer"]
+[node name="PokemonTexture" type="TextureRect" parent="UIControl/GridContainer/Pokemon3Container"]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 20.0
+expand_mode = 2
+
+[node name="PokemonHP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon3Container"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 3.0
+offset_right = 58.0
+offset_bottom = 5.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vjm6j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pame0")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonName" type="Label" parent="UIControl/GridContainer/Pokemon3Container"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 1.0
+offset_right = 133.0
+offset_bottom = 24.0
+scale = Vector2(0.1, 0.1)
+text = "Pokemon Name"
+
+[node name="PokemonHPText" type="Label" parent="UIControl/GridContainer/Pokemon3Container"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 6.0
+offset_right = 112.0
+offset_bottom = 29.0
+scale = Vector2(0.1, 0.1)
+text = "X/X HP"
+
+[node name="PokemonXP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon3Container"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 58.0
+offset_bottom = 19.0
+theme_override_styles/background = SubResource("StyleBoxFlat_82qpu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cug71")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonXPText" type="Label" parent="UIControl/GridContainer/Pokemon3Container"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 15.0
+offset_right = 114.0
+offset_bottom = 38.0
+scale = Vector2(0.1, 0.1)
+text = "X/X XP"
+
+[node name="Pokemon3Button" type="Button" parent="UIControl/GridContainer/Pokemon3Container"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 20.0
+focus_neighbor_left = NodePath("../../Pokemon5Container/Pokemon5Button")
+focus_neighbor_top = NodePath("../../Pokemon0Container/Pokemon0Button")
+focus_neighbor_right = NodePath("../../Pokemon4Container/Pokemon4Button")
+focus_neighbor_bottom = NodePath("../../Pokemon0Container/Pokemon0Button")
+flat = true
+
+[node name="Pokemon4Container" type="ColorRect" parent="UIControl/GridContainer"]
+clip_contents = true
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 color = Color(0.243137, 0.172549, 0.172549, 0.521569)
 
-[node name="ColorRect4" type="ColorRect" parent="Control/VBoxContainer"]
+[node name="PokemonTexture" type="TextureRect" parent="UIControl/GridContainer/Pokemon4Container"]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 20.0
+expand_mode = 2
+
+[node name="PokemonHP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon4Container"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 3.0
+offset_right = 58.0
+offset_bottom = 5.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vjm6j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pame0")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonName" type="Label" parent="UIControl/GridContainer/Pokemon4Container"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 1.0
+offset_right = 133.0
+offset_bottom = 24.0
+scale = Vector2(0.1, 0.1)
+text = "Pokemon Name"
+
+[node name="PokemonHPText" type="Label" parent="UIControl/GridContainer/Pokemon4Container"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 6.0
+offset_right = 112.0
+offset_bottom = 29.0
+scale = Vector2(0.1, 0.1)
+text = "X/X HP"
+
+[node name="PokemonXP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon4Container"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 58.0
+offset_bottom = 19.0
+theme_override_styles/background = SubResource("StyleBoxFlat_82qpu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cug71")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonXPText" type="Label" parent="UIControl/GridContainer/Pokemon4Container"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 15.0
+offset_right = 114.0
+offset_bottom = 38.0
+scale = Vector2(0.1, 0.1)
+text = "X/X XP"
+
+[node name="Pokemon4Button" type="Button" parent="UIControl/GridContainer/Pokemon4Container"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 20.0
+focus_neighbor_left = NodePath("../../Pokemon3Container/Pokemon3Button")
+focus_neighbor_top = NodePath("../../Pokemon1Container/Pokemon1Button")
+focus_neighbor_right = NodePath("../../Pokemon5Container/Pokemon5Button")
+focus_neighbor_bottom = NodePath("../../Pokemon1Container/Pokemon1Button")
+flat = true
+
+[node name="Pokemon5Container" type="ColorRect" parent="UIControl/GridContainer"]
+clip_contents = true
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 color = Color(0.243137, 0.172549, 0.172549, 0.521569)
 
-[node name="ColorRect5" type="ColorRect" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(20, 20)
+[node name="PokemonTexture" type="TextureRect" parent="UIControl/GridContainer/Pokemon5Container"]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 20.0
+expand_mode = 2
+
+[node name="PokemonHP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon5Container"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 3.0
+offset_right = 58.0
+offset_bottom = 5.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vjm6j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pame0")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonName" type="Label" parent="UIControl/GridContainer/Pokemon5Container"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 1.0
+offset_right = 133.0
+offset_bottom = 24.0
+scale = Vector2(0.1, 0.1)
+text = "Pokemon Name"
+
+[node name="PokemonHPText" type="Label" parent="UIControl/GridContainer/Pokemon5Container"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 6.0
+offset_right = 112.0
+offset_bottom = 29.0
+scale = Vector2(0.1, 0.1)
+text = "X/X HP"
+
+[node name="PokemonXP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon5Container"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 58.0
+offset_bottom = 19.0
+theme_override_styles/background = SubResource("StyleBoxFlat_82qpu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cug71")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonXPText" type="Label" parent="UIControl/GridContainer/Pokemon5Container"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 15.0
+offset_right = 114.0
+offset_bottom = 38.0
+scale = Vector2(0.1, 0.1)
+text = "X/X XP"
+
+[node name="Pokemon5Button" type="Button" parent="UIControl/GridContainer/Pokemon5Container"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 20.0
+focus_neighbor_left = NodePath("../../Pokemon4Container/Pokemon4Button")
+focus_neighbor_top = NodePath("../../Pokemon2Container/Pokemon2Button")
+focus_neighbor_right = NodePath("../../Pokemon3Container/Pokemon3Button")
+focus_neighbor_bottom = NodePath("../../Pokemon2Container/Pokemon2Button")
+flat = true
+
+[node name="InventoryDescription" type="ColorRect" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(15, 5)
+offset_left = 23.0
+offset_top = 17.0
+offset_right = 217.0
+offset_bottom = 26.0
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="PokemonTexture" type="TextureRect" parent="InventoryDescription"]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 10.0
+expand_mode = 2
+
+[node name="PokemonName" type="Label" parent="InventoryDescription"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1960.0
+offset_bottom = 62.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 38
+text = " Pokemon Inventory"
+
+[node name="BigPokemonDescriptor" type="ColorRect" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(60, 20)
+offset_left = 26.0
+offset_top = 29.0
+offset_right = 214.0
+offset_bottom = 70.0
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="PokemonTexture" type="TextureRect" parent="BigPokemonDescriptor"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 41.0
+expand_mode = 2
+
+[node name="PokemonHP" type="ProgressBar" parent="BigPokemonDescriptor"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 7.0
+offset_right = 137.0
+offset_bottom = 9.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vjm6j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pame0")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonName" type="Label" parent="BigPokemonDescriptor"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 1.0
+offset_right = 441.0
+offset_bottom = 71.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 45
+text = "Pokemon Name"
+
+[node name="PokemonHPText" type="Label" parent="BigPokemonDescriptor"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 6.0
+offset_right = 220.0
+offset_bottom = 41.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 25
+text = "X/X HP"
+
+[node name="PokemonXP" type="ProgressBar" parent="BigPokemonDescriptor"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 10.0
+offset_right = 137.0
+offset_bottom = 12.0
+theme_override_styles/background = SubResource("StyleBoxFlat_82qpu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cug71")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonXPText" type="Label" parent="BigPokemonDescriptor"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 9.0
+offset_right = 216.0
+offset_bottom = 44.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 25
+text = "X/X XP"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BigPokemonDescriptor"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 14.0
+offset_right = 91.0
+offset_bottom = 40.0
+theme_override_constants/separation = 2
+
+[node name="Attack1" type="ColorRect" parent="BigPokemonDescriptor/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(15, 5)
 layout_mode = 2
 color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="PokemonAttackName" type="Label" parent="BigPokemonDescriptor/VBoxContainer/Attack1"]
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 57.0
+offset_bottom = 31.0
+scale = Vector2(0.1, 0.1)
+text = "X/X HP"
+
+[node name="PokemonAttackDamage" type="Label" parent="BigPokemonDescriptor/VBoxContainer/Attack1"]
+offset_left = 33.0
+offset_top = 2.0
+offset_right = 86.0
+offset_bottom = 32.0
+scale = Vector2(0.1, 0.1)
+text = "X DMG"
+
+[node name="Attack2" type="ColorRect" parent="BigPokemonDescriptor/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(15, 5)
+layout_mode = 2
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="PokemonAttackName" type="Label" parent="BigPokemonDescriptor/VBoxContainer/Attack2"]
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 57.0
+offset_bottom = 31.0
+scale = Vector2(0.1, 0.1)
+text = "X/X HP"
+
+[node name="PokemonAttackDamage" type="Label" parent="BigPokemonDescriptor/VBoxContainer/Attack2"]
+offset_left = 33.0
+offset_top = 2.0
+offset_right = 86.0
+offset_bottom = 32.0
+scale = Vector2(0.1, 0.1)
+text = "X DMG"
+
+[node name="Attack3" type="ColorRect" parent="BigPokemonDescriptor/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(15, 5)
+layout_mode = 2
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="PokemonAttackName" type="Label" parent="BigPokemonDescriptor/VBoxContainer/Attack3"]
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 57.0
+offset_bottom = 31.0
+scale = Vector2(0.1, 0.1)
+text = "X/X HP"
+
+[node name="PokemonAttackDamage" type="Label" parent="BigPokemonDescriptor/VBoxContainer/Attack3"]
+offset_left = 33.0
+offset_top = 2.0
+offset_right = 86.0
+offset_bottom = 32.0
+scale = Vector2(0.1, 0.1)
+text = "X DMG"
+
+[node name="Attack4" type="ColorRect" parent="BigPokemonDescriptor/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(15, 5)
+layout_mode = 2
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="PokemonAttackName" type="Label" parent="BigPokemonDescriptor/VBoxContainer/Attack4"]
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 57.0
+offset_bottom = 31.0
+scale = Vector2(0.1, 0.1)
+text = "X/X HP"
+
+[node name="PokemonAttackDamage" type="Label" parent="BigPokemonDescriptor/VBoxContainer/Attack4"]
+offset_left = 33.0
+offset_top = 2.0
+offset_right = 86.0
+offset_bottom = 32.0
+scale = Vector2(0.1, 0.1)
+text = "X DMG"
+
+[connection signal="focus_entered" from="UIControl/GridContainer/Pokemon0Container/Pokemon0Button" to="." method="_on_pokemon_0_button_focus_entered"]
+[connection signal="focus_entered" from="UIControl/GridContainer/Pokemon1Container/Pokemon1Button" to="." method="_on_pokemon_1_button_focus_entered"]
+[connection signal="focus_entered" from="UIControl/GridContainer/Pokemon2Container/Pokemon2Button" to="." method="_on_pokemon_2_button_focus_entered"]
+[connection signal="focus_entered" from="UIControl/GridContainer/Pokemon3Container/Pokemon3Button" to="." method="_on_pokemon_3_button_focus_entered"]
+[connection signal="focus_entered" from="UIControl/GridContainer/Pokemon4Container/Pokemon4Button" to="." method="_on_pokemon_4_button_focus_entered"]
+[connection signal="focus_entered" from="UIControl/GridContainer/Pokemon5Container/Pokemon5Button" to="." method="_on_pokemon_5_button_focus_entered"]

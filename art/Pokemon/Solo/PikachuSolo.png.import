@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5kvirnvogvoj"
-path="res://.godot/imported/Plinfa.png-bfbac608e6b4f07971bb826a91b80730.ctex"
+uid="uid://dvm4dh3m70ye7"
+path="res://.godot/imported/PikachuSolo.png-874b88263c5658b628f9699132cba776.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pokemon/Solo/Plinfa.png"
-dest_files=["res://.godot/imported/Plinfa.png-bfbac608e6b4f07971bb826a91b80730.ctex"]
+source_file="res://art/Pokemon/Solo/PikachuSolo.png"
+dest_files=["res://.godot/imported/PikachuSolo.png-874b88263c5658b628f9699132cba776.ctex"]
 
 [params]
 

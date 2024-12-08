@@ -16,7 +16,6 @@ var mytileData : TileData
 var tileMap : TileMap
 var currentTile 
 func _ready():
-	currentTile
 	tileMap = %TileMapStartingArea
 	healthbar.init_health(maxHealth)
 	healthbar.visible = false
@@ -27,8 +26,13 @@ func handeInput():
 	var moveDirection = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = moveDirection * speed
 	################################################################################################
-	#Open Pokedox
-	#if Input.is_key_pressed(KEY_P):
+	#Open PokemonInventory
+	if Input.is_key_pressed(KEY_I):
+		var pokemonInventory = load("res://player/PokemonInventar.tscn")
+		var pokmeonInventoryScene = pokemonInventory.instantiate()
+		add_child(pokmeonInventoryScene)
+		get_tree().paused = true
+		
 		
 		#pass
 
@@ -71,8 +75,6 @@ func handleTileData():
 			await get_tree().create_timer(1.4).timeout
 			var battleTemp = battle.instantiate()
 			get_parent().add_child(battleTemp)
-			#get_tree().change_scene_to_file("res://BattleScene/Battle.tscn")
-			#queue_free() would destroy the PlayerNode
 			ui_instance.queue_free()
 			
 		

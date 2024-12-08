@@ -1186,12 +1186,14 @@ script = ExtResource("5_byxna")
 tilemap = NodePath("../..")
 
 [node name="slime" parent="TileMapStartingArea" instance=ExtResource("6_q8h6c")]
+visible = false
 position = Vector2(80, 128)
 
 [node name="Slime1Marker" type="Marker2D" parent="TileMapStartingArea/slime"]
 position = Vector2(32, 0)
 
 [node name="slime2" parent="TileMapStartingArea" instance=ExtResource("6_q8h6c")]
+visible = false
 position = Vector2(168, 128)
 
 [node name="Slime2Marker" type="Marker2D" parent="TileMapStartingArea/slime2"]

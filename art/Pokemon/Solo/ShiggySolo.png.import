@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmdfk8uldrg6e"
-path="res://.godot/imported/PlinfaSolo.png-be736e789153f620469d40fd3c2db333.ctex"
+uid="uid://7bfh2dnxdo16"
+path="res://.godot/imported/ShiggySolo.png-0e29018c001ef6abe16fb2db18ae6d79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pokemon/Solo/PlinfaSolo.png"
-dest_files=["res://.godot/imported/PlinfaSolo.png-be736e789153f620469d40fd3c2db333.ctex"]
+source_file="res://art/Pokemon/Solo/ShiggySolo.png"
+dest_files=["res://.godot/imported/ShiggySolo.png-0e29018c001ef6abe16fb2db18ae6d79.ctex"]
 
 [params]
 
