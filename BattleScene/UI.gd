@@ -40,7 +40,6 @@ func _on_flee_button_pressed() -> void:
 	await get_tree().create_timer(1.5).timeout
 	#get_tree().change_scene_to_file("res://world/world.tscn") MAY BE USEFUL FOR NEW LVL STARTS OR TELEPORTS
 	#continues logic in world now
-	get_tree().paused = false
 	#deletes the battleNode from Remote
 	queue_free() 
 func _process(delta: float) -> void:

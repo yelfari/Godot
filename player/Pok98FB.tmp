@@ -564,19 +564,6 @@ scale = Vector2(0.1, 0.1)
 theme_override_font_sizes/font_size = 38
 text = " Pokemon Inventory"
 
-[node name="ClosePokemonMenuButton" type="Button" parent="InventoryDescription"]
-z_index = 5
-offset_left = 180.0
-offset_top = 1.0
-offset_right = 230.0
-offset_bottom = 32.0
-scale = Vector2(0.2, 0.2)
-theme_override_colors/font_hover_color = Color(0.851563, 0.0831604, 0.0831604, 1)
-theme_override_constants/outline_size = 0
-theme_override_constants/h_separation = 0
-theme_override_font_sizes/font_size = 16
-text = "Close"
-
 [node name="BigPokemonDescriptor" type="ColorRect" parent="."]
 clip_contents = true
 custom_minimum_size = Vector2(60, 20)
@@ -758,11 +745,23 @@ scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/normal_font_size = 0
 text = "Pokemon  Text"
 
+[node name="CloseMenuButton" type="Button" parent="."]
+z_index = 1
+offset_left = 206.0
+offset_top = 19.0
+offset_right = 256.0
+offset_bottom = 50.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_hover_color = Color(0.851563, 0.0831604, 0.0831604, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 16
+text = "Close"
+
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon0Container/Pokemon0Button" to="." method="_on_pokemon_0_button_focus_entered"]
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon1Container/Pokemon1Button" to="." method="_on_pokemon_1_button_focus_entered"]
-[connection signal="pressed" from="UIControl/GridContainer/Pokemon1Container/Pokemon1Button" to="." method="_on_pokemon_1_button_pressed"]
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon2Container/Pokemon2Button" to="." method="_on_pokemon_2_button_focus_entered"]
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon3Container/Pokemon3Button" to="." method="_on_pokemon_3_button_focus_entered"]
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon4Container/Pokemon4Button" to="." method="_on_pokemon_4_button_focus_entered"]
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon5Container/Pokemon5Button" to="." method="_on_pokemon_5_button_focus_entered"]
-[connection signal="pressed" from="InventoryDescription/ClosePokemonMenuButton" to="." method="_on_close_pokemon_menu_button_pressed"]
+[connection signal="pressed" from="CloseMenuButton" to="." method="_on_close_menu_button_pressed"]

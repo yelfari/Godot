@@ -9,6 +9,7 @@ class_name Player
 @onready var currentHealth: int  =  maxHealth
 @export var knockbackpower = 1000
 var battle = preload("res://BattleScene/Battle.tscn")
+var pokemonInventory = preload("res://player/PokemonInventar.tscn")
 var last_tile_position = Vector2(-1, -1)
 var battle_initiated = false
 #try to access slimebattlescene
@@ -28,9 +29,8 @@ func handeInput():
 	################################################################################################
 	#Open PokemonInventory
 	if Input.is_key_pressed(KEY_I):
-		var pokemonInventory = load("res://player/PokemonInventar.tscn")
-		var pokmeonInventoryScene = pokemonInventory.instantiate()
-		add_child(pokmeonInventoryScene)
+		var InventoryScene = pokemonInventory.instantiate()
+		get_parent().add_child(InventoryScene)
 		get_tree().paused = true
 		
 		

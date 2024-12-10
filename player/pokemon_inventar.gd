@@ -52,9 +52,11 @@ func _ready() -> void:
 			print("Node not found: ", node_path)
 		
 func handeInput():
+	print_debug("HALLO")
 	if Input.is_key_pressed(KEY_I):	
 		get_tree().paused = false
 		queue_free()
+
 func _process(delta: float) -> void:
 		handeInput()
 
@@ -109,3 +111,17 @@ func update_big_pokemon_descriptor(index):
 			pokemon_attack_damage_node.text = str(Game.playerPokeMons[selected_index]["Attacks"][i]["Damage"]) + " DMG"
 		else:
 			pokemon_attack_damage_node.text = str(Game.playerPokeMons[selected_index]["Attacks"][i]["Heal"]) + " Heal"
+
+
+
+func _on_close_pokemon_menu_button_pressed() -> void:
+	var ui_scene = load("res://player/ui.tscn") # Replace with the actual path to the UI node
+	var ui_instance = ui_scene.instantiate()	
+	#make node part of the active scene Tree
+	add_child(ui_instance)
+	var animation_player = ui_instance.get_node("BattleSceneTransition")
+	animation_player.play("TransIn")
+
+
+func _on_pokemon_1_button_pressed() -> void:
+	print_debug("HIII")
