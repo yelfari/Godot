@@ -25,6 +25,7 @@ offset_bottom = 14.0
 texture = SubResource("CanvasTexture_0qnwt")
 
 [node name="middleButton" type="Button" parent="Backgrounds/MenuBackground"]
+layout_mode = 0
 offset_right = 29.0
 offset_bottom = 20.0
 focus_neighbor_left = NodePath("../../MenuBackground4/openBagpackButton")
@@ -53,6 +54,7 @@ expand_mode = 1
 
 [node name="TransparentBackground" type="ColorRect" parent="Backgrounds/MenuBackground2"]
 show_behind_parent = true
+layout_mode = 0
 offset_left = -105.0
 offset_top = -85.0
 offset_right = 135.0
@@ -85,6 +87,7 @@ texture = ExtResource("2_r6wk3")
 expand_mode = 1
 
 [node name="openPokedexButton" type="Button" parent="Backgrounds/MenuBackground3"]
+layout_mode = 0
 offset_right = 29.0
 offset_bottom = 20.0
 focus_neighbor_bottom = NodePath("../../MenuBackground/middleButton")
@@ -100,6 +103,7 @@ offset_bottom = 14.0
 texture = SubResource("CanvasTexture_0qnwt")
 
 [node name="TextureRect" type="TextureRect" parent="Backgrounds/MenuBackground4"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 3.0
 offset_right = 25.0
@@ -108,6 +112,7 @@ texture = ExtResource("1_e0qpr")
 expand_mode = 1
 
 [node name="openBagpackButton" type="Button" parent="Backgrounds/MenuBackground4"]
+layout_mode = 0
 offset_right = 29.0
 offset_bottom = 20.0
 focus_neighbor_right = NodePath("../../MenuBackground/middleButton")
@@ -132,6 +137,7 @@ texture = ExtResource("4_pbvhq")
 expand_mode = 1
 
 [node name="openPokemonTeamButton" type="Button" parent="Backgrounds/MenuBackground5"]
+layout_mode = 0
 offset_right = 29.0
 offset_bottom = 20.0
 focus_neighbor_left = NodePath("../../MenuBackground/middleButton")

@@ -56,9 +56,13 @@ func handeInput():
 	if Input.is_key_pressed(KEY_I):	
 		get_tree().paused = false
 		queue_free()
+func input() -> void:
+	if Input.is_key_pressed(KEY_I):	
+		get_tree().paused = false
+		queue_free()
 
 func _process(delta: float) -> void:
-	pass
+	input()
 
 func _on_pokemon_0_button_focus_entered() -> void:
 	update_big_pokemon_descriptor(0)

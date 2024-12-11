@@ -48,7 +48,6 @@ func handeInput():
 		get_tree().paused = false
 		gamePaused = false
 		$IngameMainMenu.visible = false
-	print_debug("HII")
 func updateAnimation():
 	if velocity.length() == 0:
 		if animations.is_playing():
