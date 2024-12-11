@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvw52tu0xt656"]
+[gd_scene load_steps=13 format=3 uid="uid://bvw52tu0xt656"]
 
 [ext_resource type="PackedScene" uid="uid://d3phxtviowbt3" path="res://player/my_player.tscn" id="1_n7psk"]
 [ext_resource type="Texture2D" uid="uid://b01mb5grl6eaj" path="res://art/TilesetNature.png" id="2_hlor4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cqdryi6y2laj" path="res://art/animatedFlower.png" id="4_tej00"]
 [ext_resource type="Script" path="res://world/follow_cam.gd" id="5_byxna"]
 [ext_resource type="PackedScene" uid="uid://bpivn0uajtwvv" path="res://enemies/slime.tscn" id="6_q8h6c"]
+[ext_resource type="PackedScene" uid="uid://cbo4rndub2bgw" path="res://player/IngameMenu.tscn" id="6_xtyio"]
 [ext_resource type="PackedScene" uid="uid://dnlikhevppw53" path="res://player/ui.tscn" id="8_hu55n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_svtpl"]
@@ -1184,6 +1185,8 @@ limit_top = 0
 position_smoothing_speed = 1.0
 script = ExtResource("5_byxna")
 tilemap = NodePath("../..")
+
+[node name="IngameMainMenu" parent="TileMapStartingArea/MyPlayer" instance=ExtResource("6_xtyio")]
 
 [node name="slime" parent="TileMapStartingArea" instance=ExtResource("6_q8h6c")]
 visible = false

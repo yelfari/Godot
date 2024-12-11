@@ -50,7 +50,7 @@ func _ready() -> void:
 			pokemon_XpText_node.text = str(pokemon_Xp) +"/" + str(pokemon_MaxXp) +"XP"
 		else:
 			print("Node not found: ", node_path)
-		
+
 func handeInput():
 	print_debug("HALLO")
 	if Input.is_key_pressed(KEY_I):	
@@ -58,7 +58,7 @@ func handeInput():
 		queue_free()
 
 func _process(delta: float) -> void:
-		handeInput()
+	pass
 
 func _on_pokemon_0_button_focus_entered() -> void:
 	update_big_pokemon_descriptor(0)
@@ -67,6 +67,7 @@ func _on_pokemon_1_button_focus_entered() -> void:
 	update_big_pokemon_descriptor(1)
 
 func _on_pokemon_2_button_focus_entered() -> void:
+	print_debug("HIII")
 	update_big_pokemon_descriptor(2)
 
 func _on_pokemon_3_button_focus_entered() -> void:
@@ -113,15 +114,6 @@ func update_big_pokemon_descriptor(index):
 			pokemon_attack_damage_node.text = str(Game.playerPokeMons[selected_index]["Attacks"][i]["Heal"]) + " Heal"
 
 
-
-func _on_close_pokemon_menu_button_pressed() -> void:
-	var ui_scene = load("res://player/ui.tscn") # Replace with the actual path to the UI node
-	var ui_instance = ui_scene.instantiate()	
-	#make node part of the active scene Tree
-	add_child(ui_instance)
-	var animation_player = ui_instance.get_node("BattleSceneTransition")
-	animation_player.play("TransIn")
-
-
-func _on_pokemon_1_button_pressed() -> void:
-	print_debug("HIII")
+func _on_pokemon_menu_close_button_focus_entered() -> void:
+	get_tree().paused = false
+	queue_free()

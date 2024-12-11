@@ -16,11 +16,14 @@ var battle_initiated = false
 var mytileData : TileData
 var tileMap : TileMap
 var currentTile 
+var gamePaused = false
 func _ready():
 	tileMap = %TileMapStartingArea
 	healthbar.init_health(maxHealth)
 	healthbar.visible = false
-
+	$IngameMainMenu.visible = false
+	
+	
 
 func handeInput():
 	#Die Input-Vektoren habe ich unter "Projekt" -> "Projekteinstellungen" -> "Eingabe-Zuordnung" definiert
@@ -32,11 +35,20 @@ func handeInput():
 		var InventoryScene = pokemonInventory.instantiate()
 		get_parent().add_child(InventoryScene)
 		get_tree().paused = true
+	#Open ingameMainMenu
+	if Input.is_key_pressed(KEY_M) and not gamePaused:
+	# Pause the game and show the menu
+		get_tree().paused = true
+		gamePaused = true
+		$IngameMainMenu.visible = true
+		$IngameMainMenu/Backgrounds/MenuBackground/middleButton.grab_focus()
 		
-		
-		#pass
-
-
+	elif Input.is_key_pressed(KEY_M) and gamePaused == true and $IngameMainMenu.visible == true:
+	# Unpause the game and hide the menu
+		get_tree().paused = false
+		gamePaused = false
+		$IngameMainMenu.visible = false
+	print_debug("HII")
 func updateAnimation():
 	if velocity.length() == 0:
 		if animations.is_playing():
@@ -53,13 +65,12 @@ func handleCollision():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var _collider = collision.get_collider()
-		
+
 func handleTileData():
 	var player_position = position
 	#print(player_position)
 	var playerMapPosition = tileMap.local_to_map(player_position)
 	mytileData = tileMap.get_cell_tile_data(1,playerMapPosition)
-	print_debug(mytileData)
 	var layername = tileMap.get_layer_name(1)
 	if mytileData != currentTile:
 		var randomInt = randi_range(1,10)
@@ -83,8 +94,7 @@ func handleTileData():
 		currentTile = mytileData
 	#pokemonSpawners <TileData#43318773508>, <TileData#43201332989>, <TileData#43285219074>,<TileData#43268441857>,<TileData#43251664640>
 	#this doesnt work somehow the TileData changed after restarting
-	
-		
+
 func _physics_process(_delta):
 	handeInput()
 	move_and_slide()
