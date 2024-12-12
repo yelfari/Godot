@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbo4rndub2bgw"]
+[gd_scene load_steps=7 format=3 uid="uid://m3b1ho7lyq2"]
 
 [ext_resource type="Texture2D" uid="uid://btymsajrhuh3q" path="res://art/MainMenuSprites/worldMap.png" id="1_clgu1"]
 [ext_resource type="Texture2D" uid="uid://b1l1usw64lkkf" path="res://art/MainMenuSprites/BagPack.png" id="1_e0qpr"]
