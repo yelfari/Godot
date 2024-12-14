@@ -3,17 +3,14 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.[]{}
 func _ready() -> void:
-	# Add Pokémon to the game
+
 	$UIControl/GridContainer/Pokemon0Container/Pokemon0Button.grab_focus()
 	for i in range(len(Game.playerPokeMons)): # Use range() for proper iteration
 		var pokemon_name = Game.playerPokeMons[i]["Name"]
-		#print_debug(Game.playerPokeMons[i]["Name"])
 		var pokemon_Xp = Game.playerPokeMons[i]["Xp"]
 		var pokemon_MaxXp = Game.playerPokeMons[i]["MaxXp"]
 		var pokemon_MaxHealth = Game.playerPokeMons[i]["Health"]
 		var pokemon_CurrentHealth = Game.playerPokeMons[i]["CurrentHealth"]
-		
-
 		# Construct the dynamic node paths
 		var node_path = "UIControl/GridContainer/Pokemon" + str(i) + "Container"
 		var node_Name = "UIControl/GridContainer/Pokemon" + str(i) + "Container/PokemonName"
@@ -22,10 +19,9 @@ func _ready() -> void:
 		var node_path_HPText = "UIControl/GridContainer/Pokemon" + str(i) + "Container/PokemonHPText"
 		var node_path_Xp = "UIControl/GridContainer/Pokemon" + str(i) + "Container/PokemonXP"
 		var node_path_XpText = "UIControl/GridContainer/Pokemon" + str(i) + "Container/PokemonXPText"
-		# Load the texture
+		# Load the specific Pokemon texture
 		var texture_path = "res://art/Pokemon/Solo/" + pokemon_name + "Solo.png"
 		var texture = load(texture_path)
-
 		# Access the node dynamically and set the texture
 		if has_node(node_path):
 			#changes Name
@@ -50,6 +46,7 @@ func _ready() -> void:
 			pokemon_XpText_node.text = str(pokemon_Xp) +"/" + str(pokemon_MaxXp) +"XP"
 		else:
 			print("Node not found: ", node_path)
+	update_big_pokemon_descriptor(0)
 
 func handeInput():
 	print_debug("HALLO")
@@ -62,7 +59,7 @@ func input() -> void:
 		queue_free()
 
 func _process(delta: float) -> void:
-	input()
+		handeInput()
 
 func _on_pokemon_0_button_focus_entered() -> void:
 	update_big_pokemon_descriptor(0)

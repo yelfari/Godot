@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://m3b1ho7lyq2"]
+[gd_scene load_steps=8 format=3 uid="uid://m3b1ho7lyq2"]
 
 [ext_resource type="Texture2D" uid="uid://btymsajrhuh3q" path="res://art/MainMenuSprites/worldMap.png" id="1_clgu1"]
 [ext_resource type="Texture2D" uid="uid://b1l1usw64lkkf" path="res://art/MainMenuSprites/BagPack.png" id="1_e0qpr"]
 [ext_resource type="Script" path="res://player/ingame_menu.gd" id="1_l2jwg"]
 [ext_resource type="Texture2D" uid="uid://chkvscqf5qhad" path="res://art/MainMenuSprites/pokedex.png" id="2_r6wk3"]
 [ext_resource type="Texture2D" uid="uid://cobgxufv4evm5" path="res://art/MainMenuSprites/pokemonTeam.png" id="4_pbvhq"]
+[ext_resource type="Texture2D" uid="uid://bu11oap1gpg0v" path="res://art/MainMenuSprites/closeButton.png" id="6_x8upr"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0qnwt"]
 
@@ -28,13 +29,13 @@ texture = SubResource("CanvasTexture_0qnwt")
 layout_mode = 0
 offset_right = 29.0
 offset_bottom = 20.0
-focus_neighbor_left = NodePath("../../MenuBackground4/openBagpackButton")
-focus_neighbor_top = NodePath("../../MenuBackground3/openPokedexButton")
-focus_neighbor_right = NodePath("../../MenuBackground5/openPokemonTeamButton")
-focus_neighbor_bottom = NodePath("../../MenuBackground2/openMapButton")
+focus_neighbor_left = NodePath("../../openBagpack/openBagpackButton")
+focus_neighbor_top = NodePath("../../openPokedex/openPokedexButton")
+focus_neighbor_right = NodePath("../../openPokemonTeam/openPokemonTeamButton")
+focus_neighbor_bottom = NodePath("../../openMap/openMapButton")
 flat = true
 
-[node name="MenuBackground2" type="TextureRect" parent="Backgrounds"]
+[node name="openMap" type="TextureRect" parent="Backgrounds"]
 self_modulate = Color(0.0588235, 0.156863, 0.294118, 1)
 z_index = 2
 offset_left = -265.0
@@ -43,7 +44,7 @@ offset_right = -236.0
 offset_bottom = 38.0
 texture = SubResource("CanvasTexture_0qnwt")
 
-[node name="TextureRect" type="TextureRect" parent="Backgrounds/MenuBackground2"]
+[node name="TextureRect" type="TextureRect" parent="Backgrounds/openMap"]
 layout_mode = 0
 offset_left = -1.0
 offset_top = -2.0
@@ -52,7 +53,7 @@ offset_bottom = 22.0
 texture = ExtResource("1_clgu1")
 expand_mode = 1
 
-[node name="TransparentBackground" type="ColorRect" parent="Backgrounds/MenuBackground2"]
+[node name="TransparentBackground" type="ColorRect" parent="Backgrounds/openMap"]
 show_behind_parent = true
 layout_mode = 0
 offset_left = -105.0
@@ -61,14 +62,14 @@ offset_right = 135.0
 offset_bottom = 50.0
 color = Color(0.171875, 0.161133, 0.161133, 0.471)
 
-[node name="openMapButton" type="Button" parent="Backgrounds/MenuBackground2"]
+[node name="openMapButton" type="Button" parent="Backgrounds/openMap"]
 layout_mode = 0
 offset_right = 29.0
 offset_bottom = 20.0
 focus_neighbor_top = NodePath("../../MenuBackground/middleButton")
 flat = true
 
-[node name="MenuBackground3" type="TextureRect" parent="Backgrounds"]
+[node name="openPokedex" type="TextureRect" parent="Backgrounds"]
 self_modulate = Color(0.0588235, 0.156863, 0.294118, 1)
 z_index = 2
 offset_left = -265.0
@@ -77,7 +78,7 @@ offset_right = -236.0
 offset_bottom = -10.0
 texture = SubResource("CanvasTexture_0qnwt")
 
-[node name="TextureRect" type="TextureRect" parent="Backgrounds/MenuBackground3"]
+[node name="TextureRect" type="TextureRect" parent="Backgrounds/openPokedex"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = -6.0
@@ -86,14 +87,14 @@ offset_bottom = 26.0
 texture = ExtResource("2_r6wk3")
 expand_mode = 1
 
-[node name="openPokedexButton" type="Button" parent="Backgrounds/MenuBackground3"]
+[node name="openPokedexButton" type="Button" parent="Backgrounds/openPokedex"]
 layout_mode = 0
 offset_right = 29.0
 offset_bottom = 20.0
 focus_neighbor_bottom = NodePath("../../MenuBackground/middleButton")
 flat = true
 
-[node name="MenuBackground4" type="TextureRect" parent="Backgrounds"]
+[node name="openBagpack" type="TextureRect" parent="Backgrounds"]
 self_modulate = Color(0.0588235, 0.156863, 0.294118, 1)
 z_index = 2
 offset_left = -299.0
@@ -102,7 +103,7 @@ offset_right = -270.0
 offset_bottom = 14.0
 texture = SubResource("CanvasTexture_0qnwt")
 
-[node name="TextureRect" type="TextureRect" parent="Backgrounds/MenuBackground4"]
+[node name="TextureRect" type="TextureRect" parent="Backgrounds/openBagpack"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 3.0
@@ -111,14 +112,14 @@ offset_bottom = 17.0
 texture = ExtResource("1_e0qpr")
 expand_mode = 1
 
-[node name="openBagpackButton" type="Button" parent="Backgrounds/MenuBackground4"]
+[node name="openBagpackButton" type="Button" parent="Backgrounds/openBagpack"]
 layout_mode = 0
 offset_right = 29.0
 offset_bottom = 20.0
 focus_neighbor_right = NodePath("../../MenuBackground/middleButton")
 flat = true
 
-[node name="MenuBackground5" type="TextureRect" parent="Backgrounds"]
+[node name="openPokemonTeam" type="TextureRect" parent="Backgrounds"]
 self_modulate = Color(0.0588235, 0.156863, 0.294118, 1)
 z_index = 2
 offset_left = -232.0
@@ -127,7 +128,7 @@ offset_right = -203.0
 offset_bottom = 14.0
 texture = SubResource("CanvasTexture_0qnwt")
 
-[node name="TextureRect" type="TextureRect" parent="Backgrounds/MenuBackground5"]
+[node name="TextureRect" type="TextureRect" parent="Backgrounds/openPokemonTeam"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
@@ -136,9 +137,32 @@ offset_bottom = 19.0
 texture = ExtResource("4_pbvhq")
 expand_mode = 1
 
-[node name="openPokemonTeamButton" type="Button" parent="Backgrounds/MenuBackground5"]
+[node name="openPokemonTeamButton" type="Button" parent="Backgrounds/openPokemonTeam"]
 layout_mode = 0
 offset_right = 29.0
 offset_bottom = 20.0
 focus_neighbor_left = NodePath("../../MenuBackground/middleButton")
 flat = true
+
+[node name="closeIngameMainMenu" type="TextureRect" parent="Backgrounds"]
+z_index = 2
+offset_left = -149.0
+offset_top = -65.0
+offset_right = -133.0
+offset_bottom = -57.0
+texture = ExtResource("6_x8upr")
+expand_mode = 1
+
+[node name="closeIngameMainMenuButton" type="Button" parent="Backgrounds/closeIngameMainMenu"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 15.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../openBagpack/openBagpackButton")
+focus_neighbor_top = NodePath("../../openPokedex/openPokedexButton")
+focus_neighbor_right = NodePath("../../openPokemonTeam/openPokemonTeamButton")
+focus_neighbor_bottom = NodePath("../../openMap/openMapButton")
+flat = true
+
+[connection signal="focus_entered" from="Backgrounds/openPokemonTeam/openPokemonTeamButton" to="." method="_on_open_pokemon_team_button_focus_entered"]
+[connection signal="focus_entered" from="Backgrounds/closeIngameMainMenu/closeIngameMainMenuButton" to="." method="_on_close_ingame_main_menu_button_focus_entered"]

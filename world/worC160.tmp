@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvw52tu0xt656"]
+[gd_scene load_steps=13 format=3 uid="uid://bvw52tu0xt656"]
 
 [ext_resource type="PackedScene" uid="uid://d3phxtviowbt3" path="res://player/my_player.tscn" id="1_n7psk"]
 [ext_resource type="Texture2D" uid="uid://b01mb5grl6eaj" path="res://art/TilesetNature.png" id="2_hlor4"]
 [ext_resource type="Texture2D" uid="uid://b8sn3k3juam4g" path="res://art/TilesetFloor.png" id="3_eq8jl"]
 [ext_resource type="Texture2D" uid="uid://cqdryi6y2laj" path="res://art/animatedFlower.png" id="4_tej00"]
 [ext_resource type="Script" path="res://world/follow_cam.gd" id="5_byxna"]
+[ext_resource type="PackedScene" uid="uid://bpivn0uajtwvv" path="res://enemies/slime.tscn" id="6_q8h6c"]
 [ext_resource type="PackedScene" uid="uid://m3b1ho7lyq2" path="res://player/IngameMenu.tscn" id="6_xtyio"]
 [ext_resource type="PackedScene" uid="uid://dnlikhevppw53" path="res://player/ui.tscn" id="8_hu55n"]
 
@@ -1176,6 +1177,8 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(56, 80)
 speed = 75
+maxHealth = null
+knockbackpower = null
 
 [node name="followCam" type="Camera2D" parent="TileMapStartingArea/MyPlayer" node_paths=PackedStringArray("tilemap")]
 zoom = Vector2(0.75, 0.75)
@@ -1186,6 +1189,20 @@ script = ExtResource("5_byxna")
 tilemap = NodePath("../..")
 
 [node name="IngameMainMenu" parent="TileMapStartingArea/MyPlayer" instance=ExtResource("6_xtyio")]
+
+[node name="slime" parent="TileMapStartingArea" instance=ExtResource("6_q8h6c")]
+visible = false
+position = Vector2(80, 128)
+
+[node name="Slime1Marker" type="Marker2D" parent="TileMapStartingArea/slime"]
+position = Vector2(32, 0)
+
+[node name="slime2" parent="TileMapStartingArea" instance=ExtResource("6_q8h6c")]
+visible = false
+position = Vector2(168, 128)
+
+[node name="Slime2Marker" type="Marker2D" parent="TileMapStartingArea/slime2"]
+position = Vector2(-16, -24)
 
 [node name="UI" parent="." instance=ExtResource("8_hu55n")]
 unique_name_in_owner = true

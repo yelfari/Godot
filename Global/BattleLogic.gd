@@ -6,6 +6,9 @@ extends Node
 func _ready() -> void:
 	pass
 
+func changeLabel(button):
+	print_debug(button)
+	button.text = "HIII"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

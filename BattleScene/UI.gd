@@ -22,6 +22,7 @@ func _on_switch_button_pressed() -> void:
 	$SwitchMenu.show()
 	$SwitchMenu/GridContainer/Pokemon1.grab_focus()
 	$ActionLabel.text = "Switch Your Pokemon!"
+	BattleLogic.changeLabel($ActionLabel)
 	
 	
 func _on_flee_button_pressed() -> void:

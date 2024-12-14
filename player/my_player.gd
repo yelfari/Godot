@@ -22,32 +22,31 @@ func _ready():
 	healthbar.init_health(maxHealth)
 	healthbar.visible = false
 	$IngameMainMenu.visible = false
-	
-	
 
-func handeInput():
+func handleMovemenetInput():
 	#Die Input-Vektoren habe ich unter "Projekt" -> "Projekteinstellungen" -> "Eingabe-Zuordnung" definiert
-	var moveDirection = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = moveDirection * speed
+		var moveDirection = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		velocity = moveDirection * speed
+func handeInput():
 	################################################################################################
 	#Open PokemonInventory
 	if Input.is_key_pressed(KEY_I):
 		var InventoryScene = pokemonInventory.instantiate()
 		get_parent().add_child(InventoryScene)
 		get_tree().paused = true
-	#Open ingameMainMenu
-	if Input.is_key_pressed(KEY_M) and not gamePaused:
-	# Pause the game and show the menu
-		get_tree().paused = true
-		gamePaused = true
-		$IngameMainMenu.visible = true
-		$IngameMainMenu/Backgrounds/MenuBackground/middleButton.grab_focus()
 		
-	elif Input.is_key_pressed(KEY_M) and gamePaused == true and $IngameMainMenu.visible == true:
-	# Unpause the game and hide the menu
-		get_tree().paused = false
-		gamePaused = false
-		$IngameMainMenu.visible = false
+	# Toggle ingameMainMenu visibility and game pause state 
+	if Input.is_action_just_pressed("openIngameMainMenu"):
+		if gamePaused:
+			# Toggle the gameState and hide the menu
+			gamePaused = false
+			$IngameMainMenu.visible = false
+		else:
+			# Toggle the gameState and show the menu
+			gamePaused = true
+			$IngameMainMenu.visible = true
+			$IngameMainMenu/Backgrounds/MenuBackground/middleButton.grab_focus()
+			
 func updateAnimation():
 	if velocity.length() == 0:
 		if animations.is_playing():
@@ -95,12 +94,13 @@ func handleTileData():
 	#this doesnt work somehow the TileData changed after restarting
 
 func _physics_process(_delta):
+	handleMovemenetInput()
 	handeInput()
-	move_and_slide()
-	handleCollision()
-	updateAnimation()
+	if !gamePaused:
+		move_and_slide()
+		handleCollision()
+		updateAnimation()
 	handleTileData()
-
 
 func _on_hurt_box_area_entered(area: Area2D):
 	if area.name == "hitBox":
@@ -109,9 +109,8 @@ func _on_hurt_box_area_entered(area: Area2D):
 			currentHealth = maxHealth
 		healthbar.health = currentHealth
 		healthbar.visible = true
-		
+
 func knock_back(enemy):
 	var knock_back_direction = (global_position - enemy.global_position).normalized() * knockbackpower
 	velocity = knock_back_direction
 	move_and_slide()
-	
