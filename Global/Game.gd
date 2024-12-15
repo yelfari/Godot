@@ -4,6 +4,7 @@ func _ready():
 	Game.addPokemon("Plinfa")
 	Game.addPokemon("Pikachu")
 	Game.addPokemon("Schiggy")
+	Game.addPokemon("Glumanda")
 
 var dataBasePokemon = {
 	
