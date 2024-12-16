@@ -13,9 +13,6 @@ var pokemonInventory = preload("res://player/PokemonInventar.tscn")
 var gamePaused = false
 
 func _ready():
-	#var tileMap = $"../pokemonSpawner"
-	#healthbar.init_health(maxHealth)
-	#healthbar.visible = false
 	$IngameMainMenu.visible = false
 
 func handleMovemenetInput():

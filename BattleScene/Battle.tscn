@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://4xroq2hbllmk"]
+[gd_scene load_steps=8 format=3 uid="uid://4xroq2hbllmk"]
 
 [ext_resource type="Texture2D" uid="uid://cpiaa6m8t8xpo" path="res://art/w.png" id="1_nafb4"]
-[ext_resource type="Script" path="res://BattleScene/UI.gd" id="2_b21uk"]
-[ext_resource type="PackedScene" uid="uid://dnlikhevppw53" path="res://player/ui.tscn" id="3_v3w28"]
+[ext_resource type="Script" path="res://BattleScene/player_ui.gd" id="2_b21uk"]
+[ext_resource type="Script" path="res://BattleScene/monster_ui.gd" id="3_tnnoc"]
+[ext_resource type="PackedScene" uid="uid://dnlikhevppw53" path="res://enemies/UI.tscn" id="3_v3w28"]
 
 [sub_resource type="GDScript" id="GDScript_vcmty"]
 script/source = "extends CanvasLayer
@@ -20,13 +21,12 @@ func _ready() -> void:
 	var pokemon_scene = Utils.pokemon_scenes.get(BattleSpawner.enemy_Pokemon, null)
 	if pokemon_scene:
 		var enemyPokemon = pokemon_scene.instantiate()
-		$enemy.add_child(enemyPokemon)
+		$enemySpawnArea.add_child(enemyPokemon)
 	else:
 		assert(ERR_BUG)
-		#print(\"ERROR\", BattleSpawner.enemy_Pokemon, \"POKEMON NOT FOUND\")
 	#await get_tree().create_timer(1.7).timeout
-	var playerPokemon = Utils.pokemon_scenes[\"Schiggy\"].instantiate()
-	$player.add_child(playerPokemon)
+	var playerPokemon = Utils.pokemon_scenes[Game.playerPokeMons[0][\"Name\"]].instantiate()
+	$playerSpawnArea.add_child(playerPokemon)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,10 +35,7 @@ func _process(delta: float) -> void:
 
 
 func _on_attack_1_pressed() -> void:
-	#character which was encountered in Overworld 
-	#TODO character are accessed through the terrain
-	var encounteredPokemon = get_parent().character_name
-	
+	var encounteredPokemon = BattleSpawner.enemy_Pokemon
 	var pokemonName = str(Game.playerPokeMons[selected][\"Name\"])
 	print_debug(pokemonName)
 	var key_for_pokemon = -1
@@ -49,8 +46,21 @@ func _on_attack_1_pressed() -> void:
 			break
 	var attackName = $PlayerUI/AttackMenu/GridContainer/Attack1.text
 	var dmgDealt = int(Game.playerPokeMons[key_for_pokemon][\"Attacks\"][0][\"Damage\"])
-	var healingDealt = str(Game.playerPokeMons[key_for_pokemon][\"Attacks\"][0][\"Heal\"])
-	$MonsterUI/ProgressBar.value -= dmgDealt 
+	var healingDealt = int(Game.playerPokeMons[key_for_pokemon][\"Attacks\"][0][\"Heal\"])
+	if dmgDealt == 0:
+		$PlayerUI/HPBar.value += healingDealt
+	else: 
+		$MonsterUI/HPBar.value -= dmgDealt 
+		$MonsterUI/HpText.text = str($MonsterUI/HPBar.value)
+		$PlayerUI/ActionLabel.text = pokemonName + \" did \" + str(dmgDealt) + \" Damage to \" + str(encounteredPokemon)
+		checkResult($MonsterUI/HPBar.value, \"Player\")
+		
+	TurnController.changeTurn(%TurnDisplayText)
+
+
+func checkResult(lifePoints: int, target: String):
+	if lifePoints <= 0:
+		$PlayerUI._on_flee_button_pressed()
 "
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bratt"]
@@ -62,16 +72,16 @@ bg_color = Color(0.973927, 0.324263, 0.570983, 1)
 process_mode = 3
 script = SubResource("GDScript_vcmty")
 
-[node name="W" type="Sprite2D" parent="."]
+[node name="BackgroundPicture" type="Sprite2D" parent="."]
 position = Vector2(120, 67.5)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_nafb4")
 metadata/_edit_lock_ = true
 
-[node name="player" type="Node2D" parent="."]
+[node name="playerSpawnArea" type="Node2D" parent="."]
 position = Vector2(75, 99)
 
-[node name="enemy" type="Node2D" parent="."]
+[node name="enemySpawnArea" type="Node2D" parent="."]
 position = Vector2(167, 61)
 
 [node name="PlayerUI" type="Control" parent="."]
@@ -254,6 +264,7 @@ text = "Choose an Option"
 layout_mode = 3
 anchors_preset = 0
 scale = Vector2(0.4, 0.4)
+script = ExtResource("3_tnnoc")
 
 [node name="Info" type="Label" parent="MonsterUI"]
 layout_mode = 0
@@ -264,7 +275,7 @@ offset_bottom = 30.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Pikachu Lvl "
 
-[node name="ProgressBar" type="ProgressBar" parent="MonsterUI"]
+[node name="HPBar" type="ProgressBar" parent="MonsterUI"]
 layout_mode = 0
 offset_left = 12.5
 offset_top = 32.5
@@ -287,6 +298,21 @@ text = "10/10
 
 [node name="UI" parent="." instance=ExtResource("3_v3w28")]
 visible = false
+
+[node name="TurnLabelHolder" type="ColorRect" parent="."]
+self_modulate = Color(0.114897, 0.114897, 0.114897, 0.443137)
+offset_left = 213.0
+offset_right = 240.0
+offset_bottom = 6.0
+
+[node name="TurnDisplayText" type="Label" parent="TurnLabelHolder"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1.0
+offset_right = 94.0
+offset_bottom = 23.0
+scale = Vector2(0.25, 0.25)
+text = "Your turn"
 
 [connection signal="pressed" from="PlayerUI/Menu/GridContainer/FightButton" to="PlayerUI" method="_on_fight_button_pressed"]
 [connection signal="pressed" from="PlayerUI/Menu/GridContainer/SwitchButton" to="PlayerUI" method="_on_switch_button_pressed"]

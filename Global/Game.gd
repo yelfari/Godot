@@ -424,7 +424,7 @@ func getPlayerPokemonNames():
 	return playerPokemonNameList
 
 var pokemon_levelMap = {
-	"Level1": ["Rattfratz"],
+	"Level1": ["Tragosso"],
 	"Level2": ["Geodude", "Onix", "Machop"],
 	"Level3": ["Squirtle", "Psyduck", "Magikarp"]
 }

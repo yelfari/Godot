@@ -850,7 +850,7 @@ scale = Vector2(1.2, 1.2)
 position = Vector2(-0.200006, -1.45653)
 scale = Vector2(0.586666, 0.461294)
 sprite_frames = SubResource("SpriteFrames_38i00")
-frame_progress = 0.726283
+frame_progress = 0.695469
 script = ExtResource("4_3iq82")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
