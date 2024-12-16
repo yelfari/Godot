@@ -10,23 +10,19 @@ class_name Player
 @export var knockbackpower = 1000
 var battle = preload("res://BattleScene/Battle.tscn")
 var pokemonInventory = preload("res://player/PokemonInventar.tscn")
-var last_tile_position = Vector2(-1, -1)
-var battle_initiated = false
-#try to access slimebattlescene
-var mytileData : TileData
-var tileMap : TileMap
-var currentTile 
 var gamePaused = false
+
 func _ready():
-	tileMap = %TileMapStartingArea
-	healthbar.init_health(maxHealth)
-	healthbar.visible = false
+	#var tileMap = $"../pokemonSpawner"
+	#healthbar.init_health(maxHealth)
+	#healthbar.visible = false
 	$IngameMainMenu.visible = false
 
 func handleMovemenetInput():
 	#Die Input-Vektoren habe ich unter "Projekt" -> "Projekteinstellungen" -> "Eingabe-Zuordnung" definiert
 		var moveDirection = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		velocity = moveDirection * speed
+
 func handeInput():
 	################################################################################################
 	#Open PokemonInventory
@@ -34,7 +30,6 @@ func handeInput():
 		var InventoryScene = pokemonInventory.instantiate()
 		get_parent().add_child(InventoryScene)
 		get_tree().paused = true
-		
 	# Toggle ingameMainMenu visibility and game pause state 
 	if Input.is_action_just_pressed("openIngameMainMenu"):
 		if gamePaused:
@@ -64,43 +59,13 @@ func handleCollision():
 		var collision = get_slide_collision(i)
 		var _collider = collision.get_collider()
 
-func handleTileData():
-	var player_position = position
-	#print(player_position)
-	var playerMapPosition = tileMap.local_to_map(player_position)
-	mytileData = tileMap.get_cell_tile_data(1,playerMapPosition)
-	var layername = tileMap.get_layer_name(1)
-	if mytileData != currentTile:
-		var randomInt = randi_range(1,10)
-		print_debug(randomInt)
-		if randomInt > 1:
-			var ui_scene = load("res://player/ui.tscn") # Replace with the actual path to the UI node
-			var ui_instance = ui_scene.instantiate()	
-			#make node part of the active scene Tree
-			add_child(ui_instance)
-			var animation_player = ui_instance.get_node("BattleSceneTransition")
-			animation_player.play("TransIn")
-			get_tree().paused = true
-			await get_tree().create_timer(1.4).timeout
-			var battleTemp = battle.instantiate()
-			get_parent().add_child(battleTemp)
-			ui_instance.queue_free()
-			
-		
-			
-		print("different tile")
-		currentTile = mytileData
-	#pokemonSpawners <TileData#43318773508>, <TileData#43201332989>, <TileData#43285219074>,<TileData#43268441857>,<TileData#43251664640>
-	#this doesnt work somehow the TileData changed after restarting
-
 func _physics_process(_delta):
 	handleMovemenetInput()
 	handeInput()
 	if !gamePaused:
 		move_and_slide()
-		handleCollision()
+		#handleCollision()
 		updateAnimation()
-	handleTileData()
 
 func _on_hurt_box_area_entered(area: Area2D):
 	if area.name == "hitBox":

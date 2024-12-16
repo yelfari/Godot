@@ -9,4 +9,4 @@ func _ready() -> void:
 	spawn()
 	
 func spawn():
-	$AnimationPlayer2.play("Spawn",-1,2)
+	$AnimationPlayer2.play("Spawn",-1)

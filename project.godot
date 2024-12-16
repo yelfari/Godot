@@ -23,6 +23,8 @@ Utils="*res://Global/Utils.gd"
 BattleLogic="*res://Global/BattleLogic.gd"
 TurnController="*res://Global/TurnController.gd"
 Ui="*res://player/ui.gd"
+BattleSpawner="*res://Global/BattleSpawner.gd"
+GlobalTimer="*res://Global/GlobalTimer.gd"
 
 [display]
 
@@ -31,6 +33,7 @@ window/size/viewport_height=135
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 
 [input]
 

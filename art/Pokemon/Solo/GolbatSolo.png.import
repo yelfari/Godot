@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3ce6wy5m5aqi"
-path="res://.godot/imported/zolbatSpritesheet.png-6fd1c2de86a87304600e8f43cb31f008.ctex"
+uid="uid://dbs28jwilg4be"
+path="res://.godot/imported/GolbatSolo.png-adb815663d734b112e7b601a23fff050.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pokemon/SpriteSheets/zolbatSpritesheet.png"
-dest_files=["res://.godot/imported/zolbatSpritesheet.png-6fd1c2de86a87304600e8f43cb31f008.ctex"]
+source_file="res://art/Pokemon/Solo/GolbatSolo.png"
+dest_files=["res://.godot/imported/GolbatSolo.png-adb815663d734b112e7b601a23fff050.ctex"]
 
 [params]
 

@@ -106,7 +106,7 @@ var dataBasePokemon = {
 				}
 			}
 		},
-		3 : {
+	3 : {
 		"Name": "Glumanda",
 		"Health": 100,
 		"CurrentHealth" : 100,
@@ -115,7 +115,252 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
-		"Description" : "Nach der Geburt schwillt sein Rücken an und verhärtet sich zu einem Panzer. Es versprüht starken Schaum aus seinem Maul.",
+		"Description" : "Die Flamme an seiner Schwanzspitze zeigt seine Lebensenergie an. Geht es ihm nicht gut, wird die Flamme schwächer.",
+		#"Scene": preload("res://art/tiv5b4bs.bmp"),
+		"Attacks": {
+			0 : {
+				"Name" : "BlitzBlasttt",
+				"Target": "Monster",
+				"Damage": 10,
+				"Heal": 0,
+				"cost" : 2,
+				},
+			1 : {
+				"Name": "Blitzheal",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				},
+			2 : {
+				"Name": "BlitzAngst",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				}
+			}
+		},
+	4 : {
+		"Name": "Golbat",
+		"Health": 100,
+		"CurrentHealth" : 100,
+		"lvl": 3,
+		"Xp": 0,
+		"MaxXp" : 10,
+		"Strength": 10,
+		"Defense": 15,
+		"Description" : "Das Blut anderer Lebewesen ist seine Leibspeise. Man sagt, dass es das abgesaugte Blut manchmal mit hungrigen Artgenossen teilt.",
+		#"Scene": preload("res://art/tiv5b4bs.bmp"),
+		"Attacks": {
+			0 : {
+				"Name" : "BlitzBlasttt",
+				"Target": "Monster",
+				"Damage": 10,
+				"Heal": 0,
+				"cost" : 2,
+				},
+			1 : {
+				"Name": "Blitzheal",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				},
+			2 : {
+				"Name": "BlitzAngst",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				}
+			}
+		},
+	5 : {
+		"Name": "Pummeluff",
+		"Health": 100,
+		"CurrentHealth" : 100,
+		"lvl": 3,
+		"Xp": 0,
+		"MaxXp" : 10,
+		"Strength": 10,
+		"Defense": 15,
+		"Description" : "Wenn seine Kulleraugen zu flackern beginnen, singt es ein mysteriöses, wohlklingendes Lied, das Zuhörer in Schlaf versetzt.",
+		#"Scene": preload("res://art/tiv5b4bs.bmp"),
+		"Attacks": {
+			0 : {
+				"Name" : "BlitzBlasttt",
+				"Target": "Monster",
+				"Damage": 10,
+				"Heal": 0,
+				"cost" : 2,
+				},
+			1 : {
+				"Name": "Blitzheal",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				},
+			2 : {
+				"Name": "BlitzAngst",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				}
+			}
+		},
+	6 : {
+		"Name": "Quapsel",
+		"Health": 100,
+		"CurrentHealth" : 100,
+		"lvl": 3,
+		"Xp": 0,
+		"MaxXp" : 10,
+		"Strength": 10,
+		"Defense": 15,
+		"Description" : "Die Spirale auf seinem Bauch ist ein Teil seiner Innereien, die durchscheinen. Hat es gefressen, sind diese klarer zu sehen.",
+		#"Scene": preload("res://art/tiv5b4bs.bmp"),
+		"Attacks": {
+			0 : {
+				"Name" : "BlitzBlasttt",
+				"Target": "Monster",
+				"Damage": 10,
+				"Heal": 0,
+				"cost" : 2,
+				},
+			1 : {
+				"Name": "Blitzheal",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				},
+			2 : {
+				"Name": "BlitzAngst",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				}
+			}
+		},
+	7 : {
+		"Name": "Raupy",
+		"Health": 100,
+		"CurrentHealth" : 100,
+		"lvl": 3,
+		"Xp": 0,
+		"MaxXp" : 10,
+		"Strength": 10,
+		"Defense": 15,
+		"Description" : "Als Schutz vor Feinden sondert es einen übel riechenden Gestank mit seinen Antennen ab.",
+		#"Scene": preload("res://art/tiv5b4bs.bmp"),
+		"Attacks": {
+			0 : {
+				"Name" : "BlitzBlasttt",
+				"Target": "Monster",
+				"Damage": 10,
+				"Heal": 0,
+				"cost" : 2,
+				},
+			1 : {
+				"Name": "Blitzheal",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				},
+			2 : {
+				"Name": "BlitzAngst",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				}
+			}
+		},
+	8 : {
+		"Name": "Taubsi",
+		"Health": 100,
+		"CurrentHealth" : 100,
+		"lvl": 3,
+		"Xp": 0,
+		"MaxXp" : 10,
+		"Strength": 10,
+		"Defense": 15,
+		"Description" : "Ein sanftmütiges Pokémon, welches lieber Sand zum Schutz aufwirbelt, als zurückzuschlagen.",
+		#"Scene": preload("res://art/tiv5b4bs.bmp"),
+		"Attacks": {
+			0 : {
+				"Name" : "BlitzBlasttt",
+				"Target": "Monster",
+				"Damage": 10,
+				"Heal": 0,
+				"cost" : 2,
+				},
+			1 : {
+				"Name": "Blitzheal",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				},
+			2 : {
+				"Name": "BlitzAngst",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				}
+			}
+		},
+	9 : {
+		"Name": "Tragosso",
+		"Health": 100,
+		"CurrentHealth" : 100,
+		"lvl": 3,
+		"Xp": 0,
+		"MaxXp" : 10,
+		"Strength": 10,
+		"Defense": 15,
+		"Description" : "Denkt Tragosso an seine verstorbene Mutter, so weint es. Sein Schluchzen hallt dabei in dem Schädel auf seinem Kopf klagend wider.",
+		#"Scene": preload("res://art/tiv5b4bs.bmp"),
+		"Attacks": {
+			0 : {
+				"Name" : "BlitzBlasttt",
+				"Target": "Monster",
+				"Damage": 10,
+				"Heal": 0,
+				"cost" : 2,
+				},
+			1 : {
+				"Name": "Blitzheal",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				},
+			2 : {
+				"Name": "BlitzAngst",
+				"Target": "Self",
+				"Damage": 0,
+				"Heal": 10,
+				"cost": 4
+				}
+			}
+		},
+	10 : {
+		"Name": "Rattfratz",
+		"Health": 100,
+		"CurrentHealth" : 100,
+		"lvl": 3,
+		"Xp": 0,
+		"MaxXp" : 10,
+		"Strength": 10,
+		"Defense": 15,
+		"Description" : "Es knabbert mit seinen zwei Nagezähnen alles und jeden an. Stößt man auf eines, findet man sicherlich 40 weitere in der Gegend.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
 			0 : {
@@ -141,7 +386,10 @@ var dataBasePokemon = {
 				}
 			}
 		}
-
+	
+	
+	
+	
 }
 
 var playerPokeMons = {
@@ -174,3 +422,9 @@ func getPlayerPokemonNames():
 	for i in playerPokeMons:
 		playerPokemonNameList.append(playerPokeMons[i]["Name"])
 	return playerPokemonNameList
+
+var pokemon_levelMap = {
+	"Level1": ["Rattfratz"],
+	"Level2": ["Geodude", "Onix", "Machop"],
+	"Level3": ["Squirtle", "Psyduck", "Magikarp"]
+}

@@ -1,8 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3phxtviowbt3"]
+[gd_scene load_steps=13 format=3 uid="uid://d3phxtviowbt3"]
 
 [ext_resource type="Texture2D" uid="uid://ijyxkvincv0x" path="res://art/PlayerSprite.png" id="1_anfuv"]
 [ext_resource type="Script" path="res://player/my_player.gd" id="1_s5iip"]
 [ext_resource type="PackedScene" uid="uid://buls23dkfst07" path="res://health_bar.tscn" id="3_avynf"]
+[ext_resource type="Script" path="res://player/hurt_box.gd" id="4_62lyk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rhxxg"]
+radius = 7.0
+height = 16.0
 
 [sub_resource type="Animation" id="Animation_6i7s5"]
 length = 0.001
@@ -100,10 +105,6 @@ _data = {
 "walk_up": SubResource("Animation_p6vrx")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8d7im"]
-radius = 6.0
-height = 14.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5uu3"]
 radius = 7.0
 height = 16.0
@@ -111,6 +112,10 @@ height = 16.0
 [node name="MyPlayer" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
 script = ExtResource("1_s5iip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(74, -8)
+shape = SubResource("CapsuleShape2D_rhxxg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(74, 0)
@@ -124,12 +129,9 @@ libraries = {
 "": SubResource("AnimationLibrary_nmm2t")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(74, -7)
-shape = SubResource("CapsuleShape2D_8d7im")
-
 [node name="hurtBox" type="Area2D" parent="."]
 collision_mask = 3
+script = ExtResource("4_62lyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
 z_index = 1
@@ -137,6 +139,7 @@ position = Vector2(74, -8)
 shape = SubResource("CapsuleShape2D_e5uu3")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_avynf")]
+visible = false
 z_index = 2
 offset_left = 59.0
 offset_top = -20.0

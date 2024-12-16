@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs727o7ts7lfx"
-path="res://.godot/imported/cuboneSpriteSheet.png-b576435d73329fa3e0bd1a77ea6fae07.ctex"
+uid="uid://c3ce6wy5m5aqi"
+path="res://.godot/imported/golbatSpritesheet.png-7c1c487ba729b960983f7cfbfbf0a57c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pokemon/SpriteSheets/cuboneSpriteSheet.png"
-dest_files=["res://.godot/imported/cuboneSpriteSheet.png-b576435d73329fa3e0bd1a77ea6fae07.ctex"]
+source_file="res://art/Pokemon/SpriteSheets/golbatSpritesheet.png"
+dest_files=["res://.godot/imported/golbatSpritesheet.png-7c1c487ba729b960983f7cfbfbf0a57c.ctex"]
 
 [params]
 

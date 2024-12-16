@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jhb0624l82pb"
-path="res://.godot/imported/jigglypuffSpriteSheet.png-988bf405810ee0e268013f5940a6d7da.ctex"
+uid="uid://dws15ghhpksvt"
+path="res://.godot/imported/QuapselSolo.png-027d4689fc48f2815c0d974a7b095aff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pokemon/SpriteSheets/jigglypuffSpriteSheet.png"
-dest_files=["res://.godot/imported/jigglypuffSpriteSheet.png-988bf405810ee0e268013f5940a6d7da.ctex"]
+source_file="res://art/Pokemon/Solo/QuapselSolo.png"
+dest_files=["res://.godot/imported/QuapselSolo.png-027d4689fc48f2815c0d974a7b095aff.ctex"]
 
 [params]
 

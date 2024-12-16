@@ -35,13 +35,11 @@ func _on_flee_button_pressed() -> void:
 	var animation_player = ui_instance.get_node("BattleSceneTransition")
 	animation_player.play("TransIn")
 	await get_tree().create_timer(1.5).timeout
+	GlobalTimer.start_timer(5)
 	get_tree().paused = false
 	animation_player.play("TransOut")
 	get_parent().visible = false
 	await get_tree().create_timer(1.5).timeout
-	#get_tree().change_scene_to_file("res://world/world.tscn") MAY BE USEFUL FOR NEW LVL STARTS OR TELEPORTS
-	#continues logic in world now
-	#deletes the battleNode from Remote doesnt work TODO
 	queue_free() 
 func _process(delta: float) -> void:
 	$HPBar.value = Game.playerPokeMons[get_parent().selected]["Health"]
