@@ -1,6 +1,7 @@
 extends Node
 
 var myTurn : bool = true
+
 #This Script is only here to Manage the Turns in which the Battle is played in
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

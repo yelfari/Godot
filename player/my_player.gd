@@ -4,9 +4,9 @@ class_name Player
 
 @export var speed: int = 35
 @onready var animations = $AnimationPlayer
-@onready var healthbar = $HealthBar
+#@onready var healthbar = $HealthBar
 @export var maxHealth = 20
-@onready var currentHealth: int  =  maxHealth
+#@onready var currentHealth: int  =  maxHealths
 @export var knockbackpower = 1000
 var battle = preload("res://BattleScene/Battle.tscn")
 var pokemonInventory = preload("res://player/PokemonInventar.tscn")
@@ -63,14 +63,6 @@ func _physics_process(_delta):
 		move_and_slide()
 		#handleCollision()
 		updateAnimation()
-
-func _on_hurt_box_area_entered(area: Area2D):
-	if area.name == "hitBox":
-		currentHealth -=1 
-		if currentHealth <= 0:
-			currentHealth = maxHealth
-		healthbar.health = currentHealth
-		healthbar.visible = true
 
 func knock_back(enemy):
 	var knock_back_direction = (global_position - enemy.global_position).normalized() * knockbackpower

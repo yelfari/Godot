@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3phxtviowbt3"]
+[gd_scene load_steps=12 format=3 uid="uid://d3phxtviowbt3"]
 
 [ext_resource type="Texture2D" uid="uid://ijyxkvincv0x" path="res://art/PlayerSprite.png" id="1_anfuv"]
 [ext_resource type="Script" path="res://player/my_player.gd" id="1_s5iip"]
-[ext_resource type="PackedScene" uid="uid://buls23dkfst07" path="res://health_bar.tscn" id="3_avynf"]
 [ext_resource type="Script" path="res://player/hurt_box.gd" id="4_62lyk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rhxxg"]
@@ -130,20 +129,13 @@ libraries = {
 }
 
 [node name="hurtBox" type="Area2D" parent="."]
+position = Vector2(8, -9)
 collision_mask = 3
 script = ExtResource("4_62lyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
 z_index = 1
-position = Vector2(74, -8)
+position = Vector2(66, 0)
 shape = SubResource("CapsuleShape2D_e5uu3")
-
-[node name="HealthBar" parent="." instance=ExtResource("3_avynf")]
-visible = false
-z_index = 2
-offset_left = 59.0
-offset_top = -20.0
-offset_right = 91.0
-offset_bottom = -18.0
 
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

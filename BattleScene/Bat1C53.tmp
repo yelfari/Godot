@@ -10,8 +10,10 @@ script/source = "extends CanvasLayer
 
 var selected = 0 #Sets the selected Pokemon
 # Called when the node enters the scene tree for the first time.
+
 	
 func _ready() -> void:
+	var tween = create_tween()
 	Utils.loadUIScene()
 	#dont know how i can refactor that into the Utils
 	$PlayerUI/Menu/GridContainer/FightButton.grab_focus()
@@ -50,9 +52,8 @@ func _on_attack_1_pressed() -> void:
 		if dmgDealt == 0:
 			$PlayerUI/HPBar.value += healingDealt
 		else: 
-			var tween = create_tween()
-			tween.tween_property($\"MonsterUI/HPBar\",\"value\", $\"MonsterUI/HPBar\".value - dmgDealt, 0.5)
-			await get_tree().create_timer(0.6).timeout
+			tween.tween_property($\"$MonsterUI/HPBar\",\"value\", $\"$MonsterUI/HPBar\".value-dmgDealt,0.5)
+			#$MonsterUI/HPBar.value -= dmgDealt 
 			$MonsterUI/HpText.text = str($MonsterUI/HPBar.value)
 			$PlayerUI/ActionLabel.text = pokemonName + \" did \" + str(dmgDealt) + \" Damage to \" + str(encounteredPokemon)
 			checkResult($MonsterUI/HPBar.value, \"Player\")
@@ -67,15 +68,13 @@ func enemyAttack()-> void:
 		var databaseEntry = Game.getEnemyPokemonEntry(BattleSpawner.enemy_Pokemon)
 		#do the one that has the most dmg 
 		var dmgDealt = 0
-		
-		#TODO THIS FOR LOOP IS FAULTY, I USE I AS IF ITS AN ITERATOR BUT ITS NOT ITS THE WHOLE VALUE OF THE KEY
 		for i in databaseEntry[\"Attacks\"]:
 			if dmgDealt < databaseEntry[\"Attacks\"][i][\"Damage\"]:
 				dmgDealt = databaseEntry[\"Attacks\"][i][\"Damage\"]
-		#create animation for HPBar dropdown or up
-		var tween = create_tween()
-		tween.tween_property($\"PlayerUI/HPBar\",\"value\", $\"PlayerUI/HPBar\".value - dmgDealt, 0.5)
-		await get_tree().create_timer(0.6).timeout
+		
+		
+		tween.tween_property($\"PlayerUI/HPBar\",\"value\", $\"PlayerUI/HPBar\".value-dmgDealt,0.5)
+		#$\"PlayerUI/HPBar\".value -= dmgDealt 
 		$\"PlayerUI/HpText\".text = str($PlayerUI/HPBar.value)
 		$\"PlayerUI/ActionLabel\".text = BattleSpawner.enemy_Pokemon + \" did \" + str(dmgDealt) + \" Damage to \" + str(Game.playerPokeMons[0][\"Name\"])
 		checkResult($PlayerUI/HPBar.value, \"Player\")

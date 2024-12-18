@@ -320,7 +320,7 @@ var dataBasePokemon = {
 		"Name": "Tragosso",
 		"Health": 100,
 		"CurrentHealth" : 100,
-		"lvl": 3,
+		"lvl": 5,
 		"Xp": 0,
 		"MaxXp" : 10,
 		"Strength": 10,
@@ -329,21 +329,21 @@ var dataBasePokemon = {
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
 			0 : {
-				"Name" : "BlitzBlasttt",
+				"Name" : "Attack1",
 				"Target": "Monster",
 				"Damage": 10,
 				"Heal": 0,
 				"cost" : 2,
 				},
 			1 : {
-				"Name": "Blitzheal",
+				"Name": "Attack2",
 				"Target": "Self",
 				"Damage": 0,
 				"Heal": 10,
 				"cost": 4
 				},
 			2 : {
-				"Name": "BlitzAngst",
+				"Name": "TragossoSchlägeBUMM",
 				"Target": "Self",
 				"Damage": 0,
 				"Heal": 10,
@@ -411,10 +411,18 @@ func addEXP(amount):
 			playerPokeMons[i]["MaxXp"] = playerPokeMons[i]["MaxXp"] + 5
 		playerPokeMons[i]["Xp"] = amount	
 
+
+func getEnemyPokemonEntry(pokemonName):
+	#print_debug(playerPokeMons)
+	for i in dataBasePokemon:
+		if dataBasePokemon[i]["Name"] == pokemonName:
+			return dataBasePokemon[i] 
+	
+	return "No Pokemon with that Name in Database"
+
 func getPlayerPokemonEntry(pokemonName):
-	print_debug(playerPokeMons)
+	#print_debug(playerPokeMons)
 	for i in playerPokeMons:
-		print_debug(playerPokeMons[i])
 		return playerPokeMons[i] if playerPokeMons[i]["Name"] == pokemonName else "No such Pokemon found in your Inventory"
 
 func getPlayerPokemonNames(): 
@@ -424,7 +432,7 @@ func getPlayerPokemonNames():
 	return playerPokemonNameList
 
 var pokemon_levelMap = {
-	"Level1": ["Tragosso"],
+	"Level1": ["Tragosso", "Pummeluff"],
 	"Level2": ["Geodude", "Onix", "Machop"],
 	"Level3": ["Squirtle", "Psyduck", "Magikarp"]
 }

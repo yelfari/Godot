@@ -1196,10 +1196,11 @@ visible = false
 [node name="MyPlayer" parent="." instance=ExtResource("1_n7psk")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(56, 80)
+position = Vector2(-16, 80)
 speed = 75
 
 [node name="followCam" type="Camera2D" parent="MyPlayer"]
+position = Vector2(-64, -16)
 zoom = Vector2(0.75, 0.75)
 limit_left = 0
 limit_top = 0
