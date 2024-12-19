@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dckudjjs56b7q"]
+
+[ext_resource type="Script" path="res://test.gd" id="1_hw68f"]
+
+[node name="ColorRect" type="ColorRect"]
+self_modulate = Color(0.187176, 0.187176, 0.187176, 0.376471)
+offset_right = 240.0
+offset_bottom = 128.0
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 240.0
+offset_bottom = 128.0
+script = ExtResource("1_hw68f")
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 64.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/GridContainer/ScrollContainer"]
+layout_mode = 2

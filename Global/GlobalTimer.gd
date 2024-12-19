@@ -16,6 +16,7 @@ func start_timer(duration):
 func _on_timeout():
 	print("UP")
 	timeIsUp = true
+	remove_child(timer)
 	
 func _process(delta: float) -> void:
 	pass

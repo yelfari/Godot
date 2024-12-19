@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://corla0kg5dkju"]
+
+[node name="Rect" type="ColorRect"]
+offset_right = 32.0
+offset_bottom = 8.0
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(0.714461, 0.303178, 0.377535, 0.392157)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 8.0

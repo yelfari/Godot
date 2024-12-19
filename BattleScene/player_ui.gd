@@ -47,7 +47,7 @@ func _on_flee_button_pressed() -> void:
 	animation_player.play("TransOut")
 	get_parent().visible = false
 	await get_tree().create_timer(1.5).timeout
-	queue_free() 
+	get_parent().queue_free() 
 
 func _process(delta: float) -> void:
 	pass

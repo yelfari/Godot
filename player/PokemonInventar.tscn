@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://oi0g3fl8c3sc"]
+[gd_scene load_steps=9 format=3 uid="uid://bg82erb0grvcs"]
 
 [ext_resource type="Script" path="res://player/pokemon_inventar.gd" id="1_co2gj"]
 

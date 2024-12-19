@@ -9,8 +9,8 @@
 script/source = "extends CanvasLayer
 
 var selected = 0 #Sets the selected Pokemon
-# Called when the node enters the scene tree for the first time.
-	
+# Called when the node enters the scene tree for the first time
+
 func _ready() -> void:
 	Utils.loadUIScene()
 	#dont know how i can refactor that into the Utils
@@ -52,7 +52,7 @@ func _on_attack_1_pressed() -> void:
 		else: 
 			var tween = create_tween()
 			tween.tween_property($\"MonsterUI/HPBar\",\"value\", $\"MonsterUI/HPBar\".value - dmgDealt, 0.5)
-			await get_tree().create_timer(0.6).timeout
+			await get_tree().create_timer(0.5).timeout
 			$MonsterUI/HpText.text = str($MonsterUI/HPBar.value)
 			$PlayerUI/ActionLabel.text = pokemonName + \" did \" + str(dmgDealt) + \" Damage to \" + str(encounteredPokemon)
 			checkResult($MonsterUI/HPBar.value, \"Player\")
@@ -62,20 +62,21 @@ func _on_attack_1_pressed() -> void:
 		
 func enemyAttack()-> void:
 	await get_tree().create_timer(4).timeout
-	if !TurnController.myTurn and $\"PlayerUI/HPBar\":
+	if !TurnController.myTurn and $\"PlayerUI/HPBar\" != null:
 		#get All attacks the enemyPokemon can do 
 		var databaseEntry = Game.getEnemyPokemonEntry(BattleSpawner.enemy_Pokemon)
 		#do the one that has the most dmg 
 		var dmgDealt = 0
 		
 		#TODO THIS FOR LOOP IS FAULTY, I USE I AS IF ITS AN ITERATOR BUT ITS NOT ITS THE WHOLE VALUE OF THE KEY
-		for i in databaseEntry[\"Attacks\"]:
-			if dmgDealt < databaseEntry[\"Attacks\"][i][\"Damage\"]:
-				dmgDealt = databaseEntry[\"Attacks\"][i][\"Damage\"]
+		for key in databaseEntry[\"Attacks\"]:
+			print(key)
+			if dmgDealt < databaseEntry[\"Attacks\"][key][\"Damage\"]:
+				dmgDealt = databaseEntry[\"Attacks\"][key][\"Damage\"]
 		#create animation for HPBar dropdown or up
 		var tween = create_tween()
 		tween.tween_property($\"PlayerUI/HPBar\",\"value\", $\"PlayerUI/HPBar\".value - dmgDealt, 0.5)
-		await get_tree().create_timer(0.6).timeout
+		await get_tree().create_timer(0.5).timeout
 		$\"PlayerUI/HpText\".text = str($PlayerUI/HPBar.value)
 		$\"PlayerUI/ActionLabel\".text = BattleSpawner.enemy_Pokemon + \" did \" + str(dmgDealt) + \" Damage to \" + str(Game.playerPokeMons[0][\"Name\"])
 		checkResult($PlayerUI/HPBar.value, \"Player\")
@@ -291,18 +292,18 @@ script = ExtResource("3_tnnoc")
 
 [node name="Info" type="Label" parent="MonsterUI"]
 layout_mode = 0
-offset_left = 12.5
-offset_top = 7.50001
-offset_right = 113.5
+offset_left = 7.50003
+offset_top = 7.50002
+offset_right = 167.5
 offset_bottom = 30.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Pikachu Lvl "
+text = "pokemonName Lvl X"
 
 [node name="HPBar" type="ProgressBar" parent="MonsterUI"]
 layout_mode = 0
-offset_left = 12.5
+offset_left = 7.50003
 offset_top = 32.5
-offset_right = 167.5
+offset_right = 162.5
 offset_bottom = 47.5
 theme_override_styles/background = SubResource("StyleBoxEmpty_bratt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_lukbl")
@@ -311,12 +312,12 @@ show_percentage = false
 
 [node name="HpText" type="Label" parent="MonsterUI"]
 layout_mode = 0
-offset_left = 125.0
+offset_left = 167.5
 offset_top = 27.5
-offset_right = 263.0
+offset_right = 305.5
 offset_bottom = 59.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "10/10
+text = "X/X
 "
 
 [node name="UI" parent="." instance=ExtResource("3_v3w28")]
