@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bvw52tu0xt656"]
+[gd_scene load_steps=13 format=4 uid="uid://bvw52tu0xt656"]
 
 [ext_resource type="PackedScene" uid="uid://d3phxtviowbt3" path="res://player/my_player.tscn" id="1_n7psk"]
 [ext_resource type="Texture2D" uid="uid://b01mb5grl6eaj" path="res://art/TilesetNature.png" id="2_hlor4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://world/follow_cam.gd" id="5_byxna"]
 [ext_resource type="PackedScene" uid="uid://m3b1ho7lyq2" path="res://player/IngameMenu.tscn" id="6_xtyio"]
 [ext_resource type="PackedScene" uid="uid://dnlikhevppw53" path="res://player/ui.tscn" id="8_hu55n"]
+[ext_resource type="PackedScene" uid="uid://dckudjjs56b7q" path="res://player/test.tscn" id="8_upt8d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_svtpl"]
 texture = ExtResource("2_hlor4")
@@ -1188,6 +1189,12 @@ tile_map_data = PackedByteArray("AAAmABIAAAAHAAoAAAAdAAwAAAAEAAoAAAAbAAwAAAAEAAo
 tile_set = SubResource("TileSet_kq4d7")
 use_kinematic_bodies = true
 collision_visibility_mode = 1
+
+[node name="ColorRect" parent="." instance=ExtResource("8_upt8d")]
+offset_left = 32.0
+offset_top = 56.0
+offset_right = 272.0
+offset_bottom = 184.0
 
 [node name="UI" parent="." instance=ExtResource("8_hu55n")]
 unique_name_in_owner = true

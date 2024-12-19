@@ -1,11 +1,83 @@
-[gd_scene format=3 uid="uid://corla0kg5dkju"]
+[gd_scene load_steps=6 format=3 uid="uid://corla0kg5dkju"]
 
-[node name="Rect" type="ColorRect"]
+[ext_resource type="Script" path="res://player/button_scene.gd" id="1_jnqnm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwxa1"]
+bg_color = Color(0.28125, 0.243896, 0.243896, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6k06p"]
+bg_color = Color(0.789063, 0.0308228, 0.0308228, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3utx"]
+bg_color = Color(0.282353, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekn11"]
+
+[node name="Rect" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 32.0
 offset_bottom = 8.0
+script = ExtResource("1_jnqnm")
 
-[node name="Button" type="Button" parent="."]
-self_modulate = Color(0.714461, 0.303178, 0.377535, 0.392157)
+[node name="Pokemon0Container" type="ColorRect" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(60, 10)
+offset_right = 64.0
+offset_bottom = 10.0
+color = Color(0.243137, 0.172549, 0.172549, 0.521569)
+
+[node name="PokemonTexture" type="TextureRect" parent="Pokemon0Container"]
 layout_mode = 0
-offset_right = 32.0
-offset_bottom = 8.0
+offset_left = 4.0
+offset_right = 18.0
+offset_bottom = 10.0
+expand_mode = 2
+
+[node name="PokemonHP" type="ProgressBar" parent="Pokemon0Container"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 7.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hwxa1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6k06p")
+value = 20.0
+show_percentage = false
+
+[node name="PokemonName" type="Label" parent="Pokemon0Container"]
+layout_mode = 0
+offset_left = 23.0
+offset_right = 147.0
+offset_bottom = 23.0
+scale = Vector2(0.1, 0.1)
+text = "Pokemon Name"
+
+[node name="PokemonHPText" type="Label" parent="Pokemon0Container"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 5.0
+offset_right = 112.0
+offset_bottom = 28.0
+scale = Vector2(0.1, 0.1)
+text = "X/X HP"
+
+[node name="PokemonXP" type="ProgressBar" parent="Pokemon0Container"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 8.0
+offset_right = 63.0
+offset_bottom = 9.0
+theme_override_styles/background = SubResource("StyleBoxFlat_a3utx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ekn11")
+value = 20.0
+show_percentage = false
+
+[node name="Pokemon0Button" type="Button" parent="Pokemon0Container"]
+offset_right = 64.0
+offset_bottom = 10.0
+focus_neighbor_left = NodePath("../../Pokemon2Container/Pokemon2Button")
+focus_neighbor_top = NodePath("../../Pokemon3Container/Pokemon3Button")
+focus_neighbor_right = NodePath("../../Pokemon1Container/Pokemon1Button")
+focus_neighbor_bottom = NodePath("../../Pokemon3Container/Pokemon3Button")
+flat = true

@@ -13,16 +13,21 @@ var pokemon_scenes = {
 	"Glumanda": preload("res://Pokemons/GlumandaOrdner/Glumanda.tscn"),
 	"Rattfratz": preload("res://Pokemons/RattfratzOrdner/Rattfratz.tscn"),
 }
+var pokemon_soloTexture = {
+	"Plinfa": load("res://art/Pokemon/Solo/PlinfaSolo.png"),
+	"Pikachu": load("res://art/Pokemon/Solo/PikachuSolo.png"),
+	"Schiggy": load("res://art/Pokemon/Solo/SchiggySolo.png"),
+	"Glumanda": load("res://art/Pokemon/Solo/GlumandaSolo.png")
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-#if stepped on certain AtlasCoords from the tileSet 
-#func tileBattleInitiator():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
+
 func loadUIScene():
 	#Load UI to battleScene for Transition
 	var ui_scene = load("res://player/ui.tscn")
