@@ -23,6 +23,7 @@ script = ExtResource("1_jnqnm")
 [node name="Pokemon0Container" type="ColorRect" parent="."]
 clip_contents = true
 custom_minimum_size = Vector2(60, 10)
+layout_mode = 0
 offset_right = 64.0
 offset_bottom = 10.0
 color = Color(0.243137, 0.172549, 0.172549, 0.521569)
@@ -74,6 +75,7 @@ value = 20.0
 show_percentage = false
 
 [node name="Pokemon0Button" type="Button" parent="Pokemon0Container"]
+layout_mode = 0
 offset_right = 64.0
 offset_bottom = 10.0
 focus_neighbor_left = NodePath("../../Pokemon2Container/Pokemon2Button")

@@ -12,6 +12,7 @@ var pokemon_scenes = {
 	"Golbat": preload("res://Pokemons/GolbatOrdner/Golbat.tscn"),
 	"Glumanda": preload("res://Pokemons/GlumandaOrdner/Glumanda.tscn"),
 	"Rattfratz": preload("res://Pokemons/RattfratzOrdner/Rattfratz.tscn"),
+	"Serpifeu": preload("res://Pokemons/SerpifeuOrdner/Serpifeu.tscn"),
 }
 var pokemon_soloTexture = {
 	"Plinfa": load("res://art/Pokemon/Solo/PlinfaSolo.png"),
