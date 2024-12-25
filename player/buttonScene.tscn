@@ -16,31 +16,33 @@ bg_color = Color(0.282353, 0.243137, 0.243137, 1)
 [node name="Rect" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 32.0
-offset_bottom = 8.0
+offset_left = 45.0
+offset_top = 46.0
+offset_right = 68.0
+offset_bottom = 56.0
 script = ExtResource("1_jnqnm")
 
 [node name="Pokemon0Container" type="ColorRect" parent="."]
 clip_contents = true
-custom_minimum_size = Vector2(60, 10)
+custom_minimum_size = Vector2(20, 10)
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 10.0
+offset_right = 44.0
+offset_bottom = 31.0
 color = Color(0.243137, 0.172549, 0.172549, 0.521569)
 
 [node name="PokemonTexture" type="TextureRect" parent="Pokemon0Container"]
 layout_mode = 0
-offset_left = 4.0
-offset_right = 18.0
-offset_bottom = 10.0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 29.0
+offset_bottom = 26.0
 expand_mode = 2
 
 [node name="PokemonHP" type="ProgressBar" parent="Pokemon0Container"]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 7.0
+offset_top = 27.0
+offset_right = 44.0
+offset_bottom = 29.0
 theme_override_styles/background = SubResource("StyleBoxFlat_hwxa1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6k06p")
 value = 20.0
@@ -48,27 +50,18 @@ show_percentage = false
 
 [node name="PokemonName" type="Label" parent="Pokemon0Container"]
 layout_mode = 0
-offset_left = 23.0
-offset_right = 147.0
-offset_bottom = 23.0
+offset_left = 18.0
+offset_right = 278.0
+offset_bottom = 45.0
 scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 32
 text = "Pokemon Name"
-
-[node name="PokemonHPText" type="Label" parent="Pokemon0Container"]
-layout_mode = 0
-offset_left = 52.0
-offset_top = 5.0
-offset_right = 112.0
-offset_bottom = 28.0
-scale = Vector2(0.1, 0.1)
-text = "X/X HP"
 
 [node name="PokemonXP" type="ProgressBar" parent="Pokemon0Container"]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 8.0
-offset_right = 63.0
-offset_bottom = 9.0
+offset_top = 29.0
+offset_right = 44.0
+offset_bottom = 31.0
 theme_override_styles/background = SubResource("StyleBoxFlat_a3utx")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ekn11")
 value = 20.0
@@ -76,8 +69,8 @@ show_percentage = false
 
 [node name="Pokemon0Button" type="Button" parent="Pokemon0Container"]
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 10.0
+offset_right = 44.0
+offset_bottom = 31.0
 focus_neighbor_left = NodePath("../../Pokemon2Container/Pokemon2Button")
 focus_neighbor_top = NodePath("../../Pokemon3Container/Pokemon3Button")
 focus_neighbor_right = NodePath("../../Pokemon1Container/Pokemon1Button")

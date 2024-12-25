@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v30xe8flda05"
-path="res://.godot/imported/kleinesMenü-removebg.png-bfb11b1485d4f073c86154a3cf12e547.ctex"
+uid="uid://f7voplxudomf"
+path="res://.godot/imported/WaterTransparent.png-fb9d50beacdecd44ddad90c04ee0aab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pokemon/Inventar/kleinesMenü-removebg.png"
-dest_files=["res://.godot/imported/kleinesMenü-removebg.png-bfb11b1485d4f073c86154a3cf12e547.ctex"]
+source_file="res://art/Pokemon/Inventar/WaterTransparent.png"
+dest_files=["res://.godot/imported/WaterTransparent.png-fb9d50beacdecd44ddad90c04ee0aab2.ctex"]
 
 [params]
 

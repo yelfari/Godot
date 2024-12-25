@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://dckudjjs56b7q"]
+
+[ext_resource type="Script" path="res://test.gd" id="1_hw68f"]
+[ext_resource type="Texture2D" uid="uid://creuy1pfo5wp0" path="res://art/Pokemon/Inventar/FireTransparent.png" id="2_aeiee"]
+[ext_resource type="Texture2D" uid="uid://ree37pe20eff" path="res://art/Pokemon/Inventar/Fire.png" id="3_unl2n"]
+[ext_resource type="Texture2D" uid="uid://f7voplxudomf" path="res://art/Pokemon/Inventar/WaterTransparent.png" id="4_d2xj4"]
+[ext_resource type="Texture2D" uid="uid://lauymlda1uk5" path="res://art/Pokemon/Inventar/water.png" id="5_aj76y"]
+[ext_resource type="Texture2D" uid="uid://bkdscttm3fh28" path="res://art/Pokemon/Inventar/LeafTransparent.png" id="5_emfnr"]
+[ext_resource type="Texture2D" uid="uid://b8nwli5ljitgs" path="res://art/Pokemon/Inventar/LightningTransparent.png" id="6_nylk4"]
+[ext_resource type="Texture2D" uid="uid://buh2n2rpdfvag" path="res://art/Pokemon/Inventar/Leaf.png" id="7_3e530"]
+[ext_resource type="Texture2D" uid="uid://c2vj4rando3pi" path="res://art/Pokemon/Inventar/FlightTransparent.png" id="7_xejn0"]
+
+[node name="ColorRect" type="Node2D"]
+self_modulate = Color(0.187176, 0.187176, 0.187176, 0.376471)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 232.0
+offset_bottom = 128.0
+script = ExtResource("1_hw68f")
+
+[node name="GridContainer" type="ScrollContainer" parent="Control"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 208.0
+offset_bottom = 80.0
+
+[node name="GridContainer" type="GridContainer" parent="Control/GridContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 25
+columns = 4
+
+[node name="elementSelector" type="GridContainer" parent="Control"]
+z_index = 8
+offset_left = 120.0
+offset_top = 8.0
+offset_right = 1924.0
+offset_bottom = 520.0
+scale = Vector2(0.04, 0.04)
+columns = 7
+
+[node name="FirePokemonFilter" type="TextureButton" parent="Control/elementSelector"]
+layout_mode = 2
+texture_normal = ExtResource("2_aeiee")
+texture_pressed = ExtResource("3_unl2n")
+texture_hover = ExtResource("3_unl2n")
+texture_focused = ExtResource("3_unl2n")
+stretch_mode = 0
+
+[node name="WaterPokemonFilter" type="TextureButton" parent="Control/elementSelector"]
+z_index = 2
+layout_mode = 2
+texture_normal = ExtResource("4_d2xj4")
+texture_pressed = ExtResource("5_aj76y")
+texture_hover = ExtResource("5_aj76y")
+texture_focused = ExtResource("5_aj76y")
+stretch_mode = 0
+
+[node name="PlantPokemonFilter" type="TextureButton" parent="Control/elementSelector"]
+layout_mode = 2
+texture_normal = ExtResource("5_emfnr")
+texture_hover = ExtResource("7_3e530")
+texture_focused = ExtResource("7_3e530")
+stretch_mode = 0
+
+[node name="LightningPokemonFilter" type="TextureButton" parent="Control/elementSelector"]
+layout_mode = 2
+texture_normal = ExtResource("6_nylk4")
+stretch_mode = 0
+
+[node name="FlightPokemonFilter" type="TextureButton" parent="Control/elementSelector"]
+layout_mode = 2
+texture_normal = ExtResource("7_xejn0")
+stretch_mode = 0
+
+[node name="Background" type="ColorRect" parent="Control"]
+y_sort_enabled = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_right = 304.0
+offset_bottom = 168.0
+color = Color(0.187176, 0.187176, 0.187176, 1)
+
+[connection signal="focus_entered" from="Control/elementSelector/FirePokemonFilter" to="Control" method="_on_fire_pokemon_filter_focus_entered"]
+[connection signal="focus_entered" from="Control/elementSelector/WaterPokemonFilter" to="Control" method="_on_water_pokemon_filter_focus_entered"]
+[connection signal="focus_entered" from="Control/elementSelector/PlantPokemonFilter" to="Control" method="_on_plant_pokemon_filter_focus_entered"]
+[connection signal="focus_entered" from="Control/elementSelector/LightningPokemonFilter" to="Control" method="_on_lightning_pokemon_filter_focus_entered"]
+[connection signal="focus_entered" from="Control/elementSelector/FlightPokemonFilter" to="Control" method="_on_flight_pokemon_filter_focus_entered"]

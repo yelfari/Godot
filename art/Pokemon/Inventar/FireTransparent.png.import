@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi5qj3a8phk6t"
-path="res://.godot/imported/kleinesMenü.png-e6c652f5294163eba05dab5316447c8b.ctex"
+uid="uid://creuy1pfo5wp0"
+path="res://.godot/imported/FireTransparent.png-33eb09c8b96a380976266bd687dade9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pokemon/Inventar/kleinesMenü.png"
-dest_files=["res://.godot/imported/kleinesMenü.png-e6c652f5294163eba05dab5316447c8b.ctex"]
+source_file="res://art/Pokemon/Inventar/FireTransparent.png"
+dest_files=["res://.godot/imported/FireTransparent.png-33eb09c8b96a380976266bd687dade9e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3rwgbtwpux6k"
-path="res://.godot/imported/Selector-removebg.png-5a57be17e12fe9d70d03ed117b3adfa1.ctex"
+uid="uid://c8er5sn6ouimy"
+path="res://.godot/imported/Flight.png-e9e80ea49278c7ab8d1617edef3ac140.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pokemon/Inventar/Selector-removebg.png"
-dest_files=["res://.godot/imported/Selector-removebg.png-5a57be17e12fe9d70d03ed117b3adfa1.ctex"]
+source_file="res://art/Pokemon/Inventar/Flight.png"
+dest_files=["res://.godot/imported/Flight.png-e9e80ea49278c7ab8d1617edef3ac140.ctex"]
 
 [params]
 

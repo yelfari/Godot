@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj5gn8pnrkppw"
-path="res://.godot/imported/GrossenMenü-removebg.png-92ac98ff5c4bf5b417c63c1750996f86.ctex"
+uid="uid://buh2n2rpdfvag"
+path="res://.godot/imported/Leaf.png-babdc007038ae862950e49a3527b2f35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pokemon/Inventar/GrossenMenü-removebg.png"
-dest_files=["res://.godot/imported/GrossenMenü-removebg.png-92ac98ff5c4bf5b417c63c1750996f86.ctex"]
+source_file="res://art/Pokemon/Inventar/Leaf.png"
+dest_files=["res://.godot/imported/Leaf.png-babdc007038ae862950e49a3527b2f35.ctex"]
 
 [params]
 

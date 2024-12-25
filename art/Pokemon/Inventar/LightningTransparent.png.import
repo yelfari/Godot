@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkaepldyuk3xf"
-path="res://.godot/imported/Selector.png-ffde32d40965dd7df41889455bea0b79.ctex"
+uid="uid://b8nwli5ljitgs"
+path="res://.godot/imported/LightningTransparent.png-3dc5cfeb77811ec37ea0dfbd704e5b5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pokemon/Inventar/Selector.png"
-dest_files=["res://.godot/imported/Selector.png-ffde32d40965dd7df41889455bea0b79.ctex"]
+source_file="res://art/Pokemon/Inventar/LightningTransparent.png"
+dest_files=["res://.godot/imported/LightningTransparent.png-3dc5cfeb77811ec37ea0dfbd704e5b5f.ctex"]
 
 [params]
 

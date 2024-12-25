@@ -10,6 +10,7 @@ class_name Player
 @export var knockbackpower = 1000
 var battle = preload("res://BattleScene/Battle.tscn")
 var pokemonInventory = preload("res://player/PokemonInventar.tscn")
+var pokedex = preload("res://player/pokedex.tscn")
 var gamePaused = false
 
 func _ready():
@@ -38,6 +39,10 @@ func handeInput():
 			gamePaused = true
 			$IngameMainMenu.visible = true
 			$IngameMainMenu/Backgrounds/MenuBackground/middleButton.grab_focus()
+	if Input.is_key_pressed(KEY_P):
+		var pokedexScene = pokedex.instantiate()
+		get_parent().add_child(pokedexScene)
+		get_tree().paused = true
 			
 func updateAnimation():
 	if velocity.length() == 0:

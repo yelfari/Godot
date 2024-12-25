@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bte22ai1vvhiq"
-path="res://.godot/imported/GrossenMenü.png-ebc9a2bd32fd2bb246da6eedefc9633c.ctex"
+uid="uid://c2vj4rando3pi"
+path="res://.godot/imported/FlightTransparent.png-1e2bf2d173881067db5ad550f48d1557.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Pokemon/Inventar/GrossenMenü.png"
-dest_files=["res://.godot/imported/GrossenMenü.png-ebc9a2bd32fd2bb246da6eedefc9633c.ctex"]
+source_file="res://art/Pokemon/Inventar/FlightTransparent.png"
+dest_files=["res://.godot/imported/FlightTransparent.png-1e2bf2d173881067db5ad550f48d1557.ctex"]
 
 [params]
 

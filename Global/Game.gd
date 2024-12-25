@@ -17,6 +17,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Water"],
 		"Description" : "Es stolpert häufig, weil es nicht gut laufen kann. Allerdings ist es sehr stolz, und so rappelt es sich immer wieder unbeirrt auf.",
 		#"Scene": preload("res://enemies/slime.tscn"),
 		"Attacks": {
@@ -45,6 +46,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Lightning"],
 		"Description" : "Ist es wütend, entlädt sich augenblicklich die Elektrizität, die es in seinen Backentaschen gespeichert hat.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
@@ -80,6 +82,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Water"],
 		"Description" : "Nach der Geburt schwillt sein Rücken an und verhärtet sich zu einem Panzer. Es versprüht starken Schaum aus seinem Maul.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
@@ -115,6 +118,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Fire"],
 		"Description" : "Die Flamme an seiner Schwanzspitze zeigt seine Lebensenergie an. Geht es ihm nicht gut, wird die Flamme schwächer.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
@@ -150,6 +154,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Flight"],
 		"Description" : "Das Blut anderer Lebewesen ist seine Leibspeise. Man sagt, dass es das abgesaugte Blut manchmal mit hungrigen Artgenossen teilt.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
@@ -185,6 +190,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Normal"],
 		"Description" : "Wenn seine Kulleraugen zu flackern beginnen, singt es ein mysteriöses, wohlklingendes Lied, das Zuhörer in Schlaf versetzt.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
@@ -220,6 +226,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Water"],
 		"Description" : "Die Spirale auf seinem Bauch ist ein Teil seiner Innereien, die durchscheinen. Hat es gefressen, sind diese klarer zu sehen.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
@@ -255,6 +262,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Plant"],
 		"Description" : "Als Schutz vor Feinden sondert es einen übel riechenden Gestank mit seinen Antennen ab.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
@@ -290,6 +298,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Flight"],
 		"Description" : "Ein sanftmütiges Pokémon, welches lieber Sand zum Schutz aufwirbelt, als zurückzuschlagen.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
@@ -325,6 +334,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Normal"],
 		"Description" : "Denkt Tragosso an seine verstorbene Mutter, so weint es. Sein Schluchzen hallt dabei in dem Schädel auf seinem Kopf klagend wider.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
@@ -360,6 +370,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Normal"],
 		"Description" : "Es knabbert mit seinen zwei Nagezähnen alles und jeden an. Stößt man auf eines, findet man sicherlich 40 weitere in der Gegend.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
@@ -395,6 +406,7 @@ var dataBasePokemon = {
 		"MaxXp" : 10,
 		"Strength": 10,
 		"Defense": 15,
+		"Type": ["Plant"],
 		"Description" : "Wenn es über das Blatt an seinem Schwanz Sonnenlicht aufnimmt und Energie erzeugt, wird es schneller und greift präziser an.",
 		#"Scene": preload("res://art/tiv5b4bs.bmp"),
 		"Attacks": {
