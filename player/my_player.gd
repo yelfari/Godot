@@ -11,7 +11,6 @@ class_name Player
 var battle = preload("res://BattleScene/Battle.tscn")
 var pokemonInventory = preload("res://player/PokemonInventar.tscn")
 var pokedex = preload("res://player/pokedex.tscn")
-var gamePaused = false
 
 func _ready():
 	$IngameMainMenu.visible = false
@@ -30,19 +29,20 @@ func handeInput():
 		get_tree().paused = true
 	# Toggle ingameMainMenu visibility and game pause state 
 	if Input.is_action_just_pressed("openIngameMainMenu"):
-		if gamePaused:
+		if Utils.gamePaused:
 			# Toggle the gameState and hide the menu
-			gamePaused = false
+			Utils.gamePaused = false
 			$IngameMainMenu.visible = false
 		else:
 			# Toggle the gameState and show the menu
-			gamePaused = true
+			Utils.gamePaused = true
 			$IngameMainMenu.visible = true
 			$IngameMainMenu/Backgrounds/MenuBackground/middleButton.grab_focus()
-	if Input.is_key_pressed(KEY_P):
-		var pokedexScene = pokedex.instantiate()
-		get_parent().add_child(pokedexScene)
-		get_tree().paused = true
+	if Input.is_action_just_pressed("openPokedex"):
+		if !Utils.gamePaused:
+			var pokedexScene = pokedex.instantiate()
+			get_parent().add_child(pokedexScene)
+			Utils.gamePaused = true
 			
 func updateAnimation():
 	if velocity.length() == 0:
@@ -64,7 +64,7 @@ func handleCollision():
 func _physics_process(_delta):
 	handleMovemenetInput()
 	handeInput()
-	if !gamePaused:
+	if !Utils.gamePaused:
 		move_and_slide()
 		#handleCollision()
 		updateAnimation()

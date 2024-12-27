@@ -2,9 +2,9 @@ extends Control
 
 
 func _ready() -> void:
-	$HPBar.value = Game.playerPokeMons[get_parent().selected]["Health"]
+	$HPBar.value = Game.playerPokeMons[get_parent().selected]["CurrentHealth"]
 	$Info.text = str(Game.playerPokeMons[get_parent().selected]["Name"]) + " L" + str(Game.playerPokeMons[get_parent().selected]["lvl"])
-	$HpText.text = str(Game.playerPokeMons[get_parent().selected]["Health"])
+	$HpText.text = str(Game.playerPokeMons[get_parent().selected]["CurrentHealth"])
 	#Set Attack Names
 	for i in Game.playerPokeMons[get_parent().selected]["Attacks"]:
 			var path = "AttackMenu/GridContainer/Attack" + str(((i)+1))

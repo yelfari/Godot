@@ -60,7 +60,7 @@ func _on_attack_1_pressed() -> void:
 		TurnController.changeTurn(%TurnDisplayText)
 		enemyAttack()
 		
-func enemyAttack()-> void:
+func enemyAttack() -> void:
 	await get_tree().create_timer(4).timeout
 	if !TurnController.myTurn and $\"PlayerUI/HPBar\" != null:
 		#get All attacks the enemyPokemon can do 
@@ -80,6 +80,7 @@ func enemyAttack()-> void:
 		$\"PlayerUI/HpText\".text = str($PlayerUI/HPBar.value)
 		$\"PlayerUI/ActionLabel\".text = BattleSpawner.enemy_Pokemon + \" did \" + str(dmgDealt) + \" Damage to \" + str(Game.playerPokeMons[0][\"Name\"])
 		checkResult($PlayerUI/HPBar.value, \"Player\")
+		Game.playerPokeMons[0][\"CurrentHealth\"] = $PlayerUI/HPBar.value
 		TurnController.changeTurn(%TurnDisplayText)
 
 func checkResult(lifePoints: int, target: String):
