@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_close_ingame_main_menu_button_focus_entered() -> void:
 	$".".visible = false
-	$"..".gamePaused = false
+	#$"..".gamePaused = false
 	
 
 

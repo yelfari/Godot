@@ -76,3 +76,13 @@ focus_neighbor_top = NodePath("../../Pokemon3Container/Pokemon3Button")
 focus_neighbor_right = NodePath("../../Pokemon1Container/Pokemon1Button")
 focus_neighbor_bottom = NodePath("../../Pokemon3Container/Pokemon3Button")
 flat = true
+
+[node name="PokemonID" type="Label" parent="Pokemon0Container"]
+offset_left = 37.0
+offset_top = 4.0
+offset_right = 90.0
+offset_bottom = 34.0
+scale = Vector2(0.1, 0.1)
+text = "ID"
+
+[connection signal="focus_entered" from="Pokemon0Container/Pokemon0Button" to="." method="_on_pokemon_0_button_focus_entered"]

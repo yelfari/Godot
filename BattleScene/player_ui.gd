@@ -26,12 +26,18 @@ func _on_back_pressed() -> void:
 	$ActionLabel.text = "Choose an Option"
 
 func _on_switch_button_pressed() -> void:
+	print(Game.playerPokeMons)
 	$Menu.hide()
 	$SwitchMenu.show()
-	$SwitchMenu/GridContainer/Pokemon1.grab_focus()
+	#$SwitchMenu/GridContainer/Pokemon1.grab_focus()
 	$ActionLabel.text = "Switch Your Pokemon!"
 	BattleLogic.changeLabel($ActionLabel)
-
+	for i in range(1, Game.playerPokeMons.size()):
+		print(Game.playerPokeMons[i]["Name"])
+		var path = "SwitchMenu/GridContainer/Pokemon" + str(((i)+1))
+		get_node(path).text = Game.playerPokeMons[i]["Name"]
+	
+		
 func _on_flee_button_pressed() -> void:
 	$ActionLabel.text = str(Game.playerPokeMons[get_parent().selected]["Name"]) + " is fleeing"
 	#await get_tree().create_timer(1).timeout
@@ -51,3 +57,63 @@ func _on_flee_button_pressed() -> void:
 
 func _process(delta: float) -> void:
 	pass
+
+func _on_Switchpokemon_2_focus_entered() -> void:
+	var temp_pokemon = Game.playerPokeMons[0]
+	Game.playerPokeMons[0] = Game.playerPokeMons[1]
+	Game.playerPokeMons[1] = temp_pokemon
+	get_node("..").freePlayerPokemon()
+	get_node("..").instantiatePlayerPokemon(Game.playerPokeMons[0]["Name"])
+	for i in range(1, Game.playerPokeMons.size()):
+		print(Game.playerPokeMons[i]["Name"])
+		var path = "SwitchMenu/GridContainer/Pokemon" + str(((i)+1))
+		get_node(path).text = Game.playerPokeMons[i]["Name"]
+	_ready()
+
+func _on_Switchpokemon_3_focus_entered() -> void:
+	var temp_pokemon = Game.playerPokeMons[0]
+	Game.playerPokeMons[0] = Game.playerPokeMons[2]
+	Game.playerPokeMons[2] = temp_pokemon
+	get_node("..").freePlayerPokemon()
+	get_node("..").instantiatePlayerPokemon(Game.playerPokeMons[0]["Name"])
+	for i in range(1, Game.playerPokeMons.size()):
+		print(Game.playerPokeMons[i]["Name"])
+		var path = "SwitchMenu/GridContainer/Pokemon" + str(((i)+1))
+		get_node(path).text = Game.playerPokeMons[i]["Name"]
+	_ready()
+
+func _on_Switchpokemon_4_focus_entered() -> void:
+	var temp_pokemon = Game.playerPokeMons[0]
+	Game.playerPokeMons[0] = Game.playerPokeMons[3]
+	Game.playerPokeMons[3] = temp_pokemon
+	get_node("..").freePlayerPokemon()
+	get_node("..").instantiatePlayerPokemon(Game.playerPokeMons[0]["Name"])
+	for i in range(1, Game.playerPokeMons.size()):
+		print(Game.playerPokeMons[i]["Name"])
+		var path = "SwitchMenu/GridContainer/Pokemon" + str(((i)+1))
+		get_node(path).text = Game.playerPokeMons[i]["Name"]
+	_ready()
+
+func _on_Switchpokemon_5_focus_entered() -> void:
+	var temp_pokemon = Game.playerPokeMons[0]
+	Game.playerPokeMons[0] = Game.playerPokeMons[4]
+	Game.playerPokeMons[4] = temp_pokemon
+	get_node("..").freePlayerPokemon()
+	get_node("..").instantiatePlayerPokemon(Game.playerPokeMons[0]["Name"])
+	for i in range(1, Game.playerPokeMons.size()):
+		print(Game.playerPokeMons[i]["Name"])
+		var path = "SwitchMenu/GridContainer/Pokemon" + str(((i)+1))
+		get_node(path).text = Game.playerPokeMons[i]["Name"]
+	_ready()
+
+func _on_Switchpokemon_6_focus_entered() -> void:
+	var temp_pokemon = Game.playerPokeMons[0]
+	Game.playerPokeMons[0] = Game.playerPokeMons[5]
+	Game.playerPokeMons[5] = temp_pokemon
+	get_node("..").freePlayerPokemon()
+	get_node("..").instantiatePlayerPokemon(Game.playerPokeMons[0]["Name"])
+	for i in range(1, Game.playerPokeMons.size()):
+		print(Game.playerPokeMons[i]["Name"])
+		var path = "SwitchMenu/GridContainer/Pokemon" + str(((i)+1))
+		get_node(path).text = Game.playerPokeMons[i]["Name"]
+	_ready()

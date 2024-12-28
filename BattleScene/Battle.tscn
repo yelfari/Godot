@@ -10,7 +10,7 @@ script/source = "extends CanvasLayer
 
 var selected = 0 #Sets the selected Pokemon
 # Called when the node enters the scene tree for the first time
-
+var playerPokemon
 func _ready() -> void:
 	Utils.loadUIScene()
 	#dont know how i can refactor that into the Utils
@@ -23,11 +23,18 @@ func _ready() -> void:
 		$enemySpawnArea.add_child(enemyPokemon)
 	else:
 		assert(ERR_BUG)
+	instantiatePlayerPokemon()
 	#await get_tree().create_timer(1.7).timeout
-	var playerPokemon = Utils.pokemon_scenes[Game.playerPokeMons[0][\"Name\"]].instantiate()
-	$playerSpawnArea.add_child(playerPokemon)
 	
+func instantiatePlayerPokemon(name : String = Game.playerPokeMons[0][\"Name\"] ) -> void:
+	print(name)
+	playerPokemon = Utils.pokemon_scenes[name].instantiate()
+	$playerSpawnArea.add_child(playerPokemon)
 
+func freePlayerPokemon() -> void:
+	$playerSpawnArea.remove_child(playerPokemon)
+	playerPokemon.queue_free()
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -208,42 +215,54 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 382.5
+offset_left = 307.5
 offset_top = 257.5
-offset_right = 666.5
+offset_right = 591.5
 offset_bottom = 324.5
 grow_horizontal = 0
 theme_override_constants/separation = 45
 
 [node name="GridContainer" type="GridContainer" parent="PlayerUI/SwitchMenu"]
 layout_mode = 2
-theme_override_constants/h_separation = 25
+theme_override_constants/h_separation = 3
 theme_override_constants/v_separation = 5
-columns = 2
-
-[node name="Pokemon1" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
-layout_mode = 2
-focus_neighbor_right = NodePath("../Pokemon3")
-focus_neighbor_bottom = NodePath("../Pokemon2")
-action_mode = 0
-text = "Glurak"
-
-[node name="Pokemon3" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
-layout_mode = 2
-focus_neighbor_left = NodePath("../Pokemon1")
-focus_neighbor_bottom = NodePath("../Back")
-text = "Garados"
+columns = 3
 
 [node name="Pokemon2" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Pokemon1")
+focus_neighbor_left = NodePath("../Pokemon6")
+focus_neighbor_bottom = NodePath("../Back")
+text = "Pokemon2"
+
+[node name="Pokemon3" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Pokemon6")
 focus_neighbor_right = NodePath("../Back")
-text = "Plimfa"
+text = "Pokemon4"
+
+[node name="Pokemon4" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Pokemon6")
+focus_neighbor_bottom = NodePath("../Back")
+text = "Pokemon5"
+
+[node name="Pokemon5" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Pokemon6")
+focus_neighbor_right = NodePath("../Back")
+text = "Pokemon3"
+
+[node name="Pokemon6" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Pokemon2")
+focus_neighbor_bottom = NodePath("../Pokemon5")
+action_mode = 0
+text = "Pokemon1"
 
 [node name="Back" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../Pokemon2")
-focus_neighbor_top = NodePath("../Pokemon3")
+focus_neighbor_left = NodePath("../Pokemon5")
+focus_neighbor_top = NodePath("../Pokemon2")
 text = "Back"
 
 [node name="Info" type="Label" parent="PlayerUI"]
@@ -344,4 +363,9 @@ text = "Your turn"
 [connection signal="pressed" from="PlayerUI/Menu/GridContainer/FleeButton" to="PlayerUI" method="_on_flee_button_pressed"]
 [connection signal="pressed" from="PlayerUI/AttackMenu/GridContainer/Attack1" to="." method="_on_attack_1_pressed"]
 [connection signal="pressed" from="PlayerUI/AttackMenu/GridContainer/Back" to="PlayerUI" method="_on_back_pressed"]
+[connection signal="focus_entered" from="PlayerUI/SwitchMenu/GridContainer/Pokemon2" to="PlayerUI" method="_on_Switchpokemon_2_focus_entered"]
+[connection signal="focus_entered" from="PlayerUI/SwitchMenu/GridContainer/Pokemon3" to="PlayerUI" method="_on_Switchpokemon_3_focus_entered"]
+[connection signal="focus_entered" from="PlayerUI/SwitchMenu/GridContainer/Pokemon4" to="PlayerUI" method="_on_Switchpokemon_4_focus_entered"]
+[connection signal="focus_entered" from="PlayerUI/SwitchMenu/GridContainer/Pokemon5" to="PlayerUI" method="_on_Switchpokemon_5_focus_entered"]
+[connection signal="focus_entered" from="PlayerUI/SwitchMenu/GridContainer/Pokemon6" to="PlayerUI" method="_on_Switchpokemon_6_focus_entered"]
 [connection signal="pressed" from="PlayerUI/SwitchMenu/GridContainer/Back" to="PlayerUI" method="_on_back_pressed"]

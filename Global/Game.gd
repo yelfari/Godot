@@ -5,6 +5,8 @@ func _ready():
 	Game.addPokemon("Pikachu")
 	Game.addPokemon("Schiggy")
 	Game.addPokemon("Glumanda")
+	Game.addPokemon("Glumanda")
+	Game.addPokemon("Schiggy")
 
 var dataBasePokemon = {
 	
@@ -446,9 +448,11 @@ func addPokemon(Name):
 	for i in dataBasePokemon:
 		if dataBasePokemon[i]["Name"] == Name:
 			var tempDic = dataBasePokemon[i].duplicate(true)
+			var random_ID = randi()
+			tempDic["ID"] = random_ID
 			playerPokeMons[playerPokeMons.size()] = tempDic
 
-func addEXP(amount):
+func addEXP(amount) -> void:
 	for i in playerPokeMons:
 		playerPokeMons[i]["Xp"] += amount	
 		while amount >= playerPokeMons[i]["MaxXp"]:
@@ -476,6 +480,9 @@ func getPlayerPokemonNames():
 	for i in playerPokeMons:
 		playerPokemonNameList.append(playerPokeMons[i]["Name"])
 	return playerPokemonNameList
+
+func changeSelectedPokemon() -> void:
+	pass
 
 var pokemon_levelMap = {
 	"Level1": ["Serpifeu"],

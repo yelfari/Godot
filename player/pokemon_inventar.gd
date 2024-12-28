@@ -46,10 +46,14 @@ func _ready() -> void:
 			pokemon_XpText_node.text = str(pokemon_Xp) +"/" + str(pokemon_MaxXp) +"XP"
 		else:
 			print("Node not found: ", node_path)
+	var menu_button = $UIControl/GridContainer/Pokemon0Container/Pokemon0Button.get_popup()
+	menu_button.add_item("Hi",1)
+	menu_button.add_item("No",2)
+	menu_button.add_item("yes",3)
+	$UIControl/GridContainer/Pokemon0Container/Pokemon0Button.get_popup().id_pressed.connect(_on_menu_item_pressed)
 	update_big_pokemon_descriptor(0)
 
 func handeInput():
-	print_debug("HALLO")
 	if Input.is_key_pressed(KEY_I):	
 		get_tree().paused = false
 		queue_free()
@@ -68,7 +72,6 @@ func _on_pokemon_1_button_focus_entered() -> void:
 	update_big_pokemon_descriptor(1)
 
 func _on_pokemon_2_button_focus_entered() -> void:
-	print_debug("HIII")
 	update_big_pokemon_descriptor(2)
 
 func _on_pokemon_3_button_focus_entered() -> void:
@@ -114,7 +117,22 @@ func update_big_pokemon_descriptor(index):
 		else:
 			pokemon_attack_damage_node.text = str(Game.playerPokeMons[selected_index]["Attacks"][i]["Heal"]) + " Heal"
 
-
 func _on_pokemon_menu_close_button_focus_entered() -> void:
 	get_tree().paused = false
 	queue_free()
+
+
+
+func _on_menu_item_pressed(id):
+	match id:
+		1:
+			print("New file created")
+		2:
+			print("File opened")
+		3:
+			print("Exiting application")
+			$UIControl/GridContainer/Pokemon0Container/Pokemon0Button.get_popup().hide()
+
+
+func _on_pokemon_0_button_pressed() -> void:
+	pass # Replace with function body.

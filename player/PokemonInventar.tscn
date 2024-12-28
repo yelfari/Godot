@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg82erb0grvcs"]
+[gd_scene load_steps=11 format=3 uid="uid://bg82erb0grvcs"]
 
 [ext_resource type="Script" path="res://player/pokemon_inventar.gd" id="1_co2gj"]
 
@@ -73,6 +73,17 @@ bg_color = Color(0.789063, 0.0308228, 0.0308228, 1)
 bg_color = Color(0.282353, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cug71"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggqjw"]
+bg_color = Color(0.36344, 0.676796, 0.503941, 1)
+
+[sub_resource type="Theme" id="Theme_len25"]
+PopupMenu/constants/indent = 10
+PopupMenu/constants/v_separation = 4
+PopupMenu/font_sizes/font_separator_size = 12
+PopupMenu/font_sizes/font_size = 12
+PopupMenu/font_sizes/title_font_size = 12
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_ggqjw")
 
 [node name="pokemonMenüs" type="CanvasLayer"]
 script = ExtResource("1_co2gj")
@@ -173,7 +184,7 @@ offset_bottom = 38.0
 scale = Vector2(0.1, 0.1)
 text = "X/X XP"
 
-[node name="Pokemon0Button" type="Button" parent="UIControl/GridContainer/Pokemon0Container"]
+[node name="Pokemon0Button" type="MenuButton" parent="UIControl/GridContainer/Pokemon0Container"]
 layout_mode = 0
 offset_right = 60.0
 offset_bottom = 20.0
@@ -181,7 +192,8 @@ focus_neighbor_left = NodePath("../../Pokemon2Container/Pokemon2Button")
 focus_neighbor_top = NodePath("../../Pokemon3Container/Pokemon3Button")
 focus_neighbor_right = NodePath("../../Pokemon1Container/Pokemon1Button")
 focus_neighbor_bottom = NodePath("../../Pokemon3Container/Pokemon3Button")
-flat = true
+theme = SubResource("Theme_len25")
+switch_on_hover = true
 
 [node name="Pokemon1Container" type="ColorRect" parent="UIControl/GridContainer"]
 clip_contents = true
@@ -751,6 +763,7 @@ offset_bottom = 25.0
 action_mode = 0
 
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon0Container/Pokemon0Button" to="." method="_on_pokemon_0_button_focus_entered"]
+[connection signal="pressed" from="UIControl/GridContainer/Pokemon0Container/Pokemon0Button" to="." method="_on_pokemon_0_button_pressed"]
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon1Container/Pokemon1Button" to="." method="_on_pokemon_1_button_focus_entered"]
 [connection signal="pressed" from="UIControl/GridContainer/Pokemon1Container/Pokemon1Button" to="." method="_on_pokemon_1_button_pressed"]
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon2Container/Pokemon2Button" to="." method="_on_pokemon_2_button_focus_entered"]
