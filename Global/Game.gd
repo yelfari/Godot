@@ -5,8 +5,8 @@ func _ready():
 	Game.addPokemon("Pikachu")
 	Game.addPokemon("Schiggy")
 	Game.addPokemon("Glumanda")
+	Game.addPokemon("Plinfa")
 	Game.addPokemon("Glumanda")
-	Game.addPokemon("Schiggy")
 
 var dataBasePokemon = {
 	

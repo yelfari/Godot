@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0aug7gsg3bjv"]
+
+[ext_resource type="Script" path="res://dragndrop.gd" id="1_c3vrs"]
+[ext_resource type="Texture2D" uid="uid://dgufnhwl0wfc7" path="res://icon.svg" id="2_2t27i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1nw23"]
+radius = 62.97
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_c3vrs")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(118, 60)
+scale = Vector2(0.171875, 0.128906)
+texture = ExtResource("2_2t27i")
+
+[node name="Area2D" type="Area2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
+shape = SubResource("CircleShape2D_1nw23")
+
+[connection signal="input_event" from="Icon/Area2D" to="." method="_on_area_2d_input_event"]

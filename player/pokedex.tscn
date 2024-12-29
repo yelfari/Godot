@@ -20,7 +20,7 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.851914, 0.889995, 0.858916, 0.611765)
 
-[node name="ColorRect" type="CanvasLayer"]
+[node name="Pokedex" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

@@ -23,10 +23,6 @@ func handleMovemenetInput():
 func handeInput():
 	################################################################################################
 	#Open PokemonInventory
-	if Input.is_key_pressed(KEY_I):
-		var InventoryScene = pokemonInventory.instantiate()
-		get_parent().add_child(InventoryScene)
-		get_tree().paused = true
 	# Toggle ingameMainMenu visibility and game pause state 
 	if Input.is_action_just_pressed("openIngameMainMenu"):
 		if Utils.gamePaused:
@@ -42,6 +38,11 @@ func handeInput():
 		if !Utils.gamePaused:
 			var pokedexScene = pokedex.instantiate()
 			get_parent().add_child(pokedexScene)
+			Utils.gamePaused = true
+	if Input.is_action_just_pressed("openPokemonInventory"):
+		if !Utils.gamePaused:
+			var pokemonInventoryScene = pokemonInventory.instantiate()
+			get_parent().add_child(pokemonInventoryScene)
 			Utils.gamePaused = true
 			
 func updateAnimation():

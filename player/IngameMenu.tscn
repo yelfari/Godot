@@ -164,5 +164,6 @@ focus_neighbor_right = NodePath("../../openPokemonTeam/openPokemonTeamButton")
 focus_neighbor_bottom = NodePath("../../openMap/openMapButton")
 flat = true
 
+[connection signal="focus_entered" from="Backgrounds/openPokedex/openPokedexButton" to="." method="_on_open_pokedex_button_focus_entered"]
 [connection signal="focus_entered" from="Backgrounds/openPokemonTeam/openPokemonTeamButton" to="." method="_on_open_pokemon_team_button_focus_entered"]
 [connection signal="focus_entered" from="Backgrounds/closeIngameMainMenu/closeIngameMainMenuButton" to="." method="_on_close_ingame_main_menu_button_focus_entered"]

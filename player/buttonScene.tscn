@@ -78,6 +78,7 @@ focus_neighbor_bottom = NodePath("../../Pokemon3Container/Pokemon3Button")
 flat = true
 
 [node name="PokemonID" type="Label" parent="Pokemon0Container"]
+layout_mode = 0
 offset_left = 37.0
 offset_top = 4.0
 offset_right = 90.0

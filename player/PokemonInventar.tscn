@@ -1,6 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bg82erb0grvcs"]
+[gd_scene load_steps=17 format=3 uid="uid://bg82erb0grvcs"]
 
 [ext_resource type="Script" path="res://player/pokemon_inventar.gd" id="1_co2gj"]
+[ext_resource type="Script" path="res://player/pokemon_0_button.gd" id="3_a0owe"]
+[ext_resource type="Script" path="res://player/pokemon_1_button.gd" id="4_f2n86"]
+[ext_resource type="Script" path="res://player/pokemon_2_button.gd" id="4_uyoct"]
+[ext_resource type="Script" path="res://player/pokemon_3_button.gd" id="5_70pi7"]
+[ext_resource type="Script" path="res://player/pokemon_4_button.gd" id="6_2y5vx"]
+[ext_resource type="Script" path="res://player/pokemon_5_button.gd" id="7_mgxm7"]
 
 [sub_resource type="FontFile" id="FontFile_0g0mj"]
 subpixel_positioning = 0
@@ -130,13 +136,11 @@ layout_mode = 2
 color = Color(0.243137, 0.172549, 0.172549, 0.521569)
 
 [node name="PokemonTexture" type="TextureRect" parent="UIControl/GridContainer/Pokemon0Container"]
-layout_mode = 0
 offset_right = 18.0
 offset_bottom = 20.0
 expand_mode = 2
 
 [node name="PokemonHP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon0Container"]
-layout_mode = 0
 offset_left = 36.0
 offset_top = 3.0
 offset_right = 58.0
@@ -147,7 +151,6 @@ value = 20.0
 show_percentage = false
 
 [node name="PokemonName" type="Label" parent="UIControl/GridContainer/Pokemon0Container"]
-layout_mode = 0
 offset_left = 20.0
 offset_top = 1.0
 offset_right = 133.0
@@ -156,7 +159,6 @@ scale = Vector2(0.1, 0.1)
 text = "Pokemon Name"
 
 [node name="PokemonHPText" type="Label" parent="UIControl/GridContainer/Pokemon0Container"]
-layout_mode = 0
 offset_left = 52.0
 offset_top = 6.0
 offset_right = 112.0
@@ -165,7 +167,6 @@ scale = Vector2(0.1, 0.1)
 text = "X/X HP"
 
 [node name="PokemonXP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon0Container"]
-layout_mode = 0
 offset_left = 18.0
 offset_top = 18.0
 offset_right = 58.0
@@ -176,7 +177,6 @@ value = 20.0
 show_percentage = false
 
 [node name="PokemonXPText" type="Label" parent="UIControl/GridContainer/Pokemon0Container"]
-layout_mode = 0
 offset_left = 54.0
 offset_top = 15.0
 offset_right = 114.0
@@ -184,7 +184,7 @@ offset_bottom = 38.0
 scale = Vector2(0.1, 0.1)
 text = "X/X XP"
 
-[node name="Pokemon0Button" type="MenuButton" parent="UIControl/GridContainer/Pokemon0Container"]
+[node name="Pokemon0Button" type="Button" parent="UIControl/GridContainer/Pokemon0Container"]
 layout_mode = 0
 offset_right = 60.0
 offset_bottom = 20.0
@@ -193,7 +193,8 @@ focus_neighbor_top = NodePath("../../Pokemon3Container/Pokemon3Button")
 focus_neighbor_right = NodePath("../../Pokemon1Container/Pokemon1Button")
 focus_neighbor_bottom = NodePath("../../Pokemon3Container/Pokemon3Button")
 theme = SubResource("Theme_len25")
-switch_on_hover = true
+flat = true
+script = ExtResource("3_a0owe")
 
 [node name="Pokemon1Container" type="ColorRect" parent="UIControl/GridContainer"]
 clip_contents = true
@@ -265,6 +266,7 @@ focus_neighbor_top = NodePath("../../Pokemon4Container/Pokemon4Button")
 focus_neighbor_right = NodePath("../../Pokemon2Container/Pokemon2Button")
 focus_neighbor_bottom = NodePath("../../Pokemon4Container/Pokemon4Button")
 flat = true
+script = ExtResource("4_f2n86")
 
 [node name="Pokemon2Container" type="ColorRect" parent="UIControl/GridContainer"]
 clip_contents = true
@@ -336,6 +338,7 @@ focus_neighbor_top = NodePath("../../Pokemon5Container/Pokemon5Button")
 focus_neighbor_right = NodePath("../../Pokemon0Container/Pokemon0Button")
 focus_neighbor_bottom = NodePath("../../Pokemon5Container/Pokemon5Button")
 flat = true
+script = ExtResource("4_uyoct")
 
 [node name="Pokemon3Container" type="ColorRect" parent="UIControl/GridContainer"]
 clip_contents = true
@@ -407,6 +410,7 @@ focus_neighbor_top = NodePath("../../Pokemon0Container/Pokemon0Button")
 focus_neighbor_right = NodePath("../../Pokemon4Container/Pokemon4Button")
 focus_neighbor_bottom = NodePath("../../Pokemon0Container/Pokemon0Button")
 flat = true
+script = ExtResource("5_70pi7")
 
 [node name="Pokemon4Container" type="ColorRect" parent="UIControl/GridContainer"]
 clip_contents = true
@@ -478,6 +482,7 @@ focus_neighbor_top = NodePath("../../Pokemon1Container/Pokemon1Button")
 focus_neighbor_right = NodePath("../../Pokemon5Container/Pokemon5Button")
 focus_neighbor_bottom = NodePath("../../Pokemon1Container/Pokemon1Button")
 flat = true
+script = ExtResource("6_2y5vx")
 
 [node name="Pokemon5Container" type="ColorRect" parent="UIControl/GridContainer"]
 clip_contents = true
@@ -549,6 +554,7 @@ focus_neighbor_top = NodePath("../../Pokemon2Container/Pokemon2Button")
 focus_neighbor_right = NodePath("../../Pokemon3Container/Pokemon3Button")
 focus_neighbor_bottom = NodePath("../../Pokemon2Container/Pokemon2Button")
 flat = true
+script = ExtResource("7_mgxm7")
 
 [node name="InventoryDescription" type="ColorRect" parent="."]
 clip_contents = true
@@ -763,9 +769,7 @@ offset_bottom = 25.0
 action_mode = 0
 
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon0Container/Pokemon0Button" to="." method="_on_pokemon_0_button_focus_entered"]
-[connection signal="pressed" from="UIControl/GridContainer/Pokemon0Container/Pokemon0Button" to="." method="_on_pokemon_0_button_pressed"]
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon1Container/Pokemon1Button" to="." method="_on_pokemon_1_button_focus_entered"]
-[connection signal="pressed" from="UIControl/GridContainer/Pokemon1Container/Pokemon1Button" to="." method="_on_pokemon_1_button_pressed"]
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon2Container/Pokemon2Button" to="." method="_on_pokemon_2_button_focus_entered"]
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon3Container/Pokemon3Button" to="." method="_on_pokemon_3_button_focus_entered"]
 [connection signal="focus_entered" from="UIControl/GridContainer/Pokemon4Container/Pokemon4Button" to="." method="_on_pokemon_4_button_focus_entered"]
