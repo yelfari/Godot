@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dckudjjs56b7q"]
 
-[ext_resource type="Script" path="res://test.gd" id="1_hw68f"]
+[ext_resource type="Script" path="res://pokedex.gd" id="1_hw68f"]
 [ext_resource type="Texture2D" uid="uid://creuy1pfo5wp0" path="res://art/Pokemon/Inventar/FireTransparent.png" id="2_aeiee"]
 [ext_resource type="Texture2D" uid="uid://bv5pexl5vptgc" path="res://art/Pokemon/Inventar/AllPokemonBagTransparent.png" id="2_bdbng"]
 [ext_resource type="Texture2D" uid="uid://g0kwwsmk8yjc" path="res://art/Pokemon/Inventar/AllPokemonBag.png" id="3_82ac2"]

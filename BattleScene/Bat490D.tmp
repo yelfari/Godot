@@ -9,36 +9,31 @@
 script/source = "extends CanvasLayer
 
 var playerPokemon
-var enemyPokemon
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	Utils.loadUIScene()
+	#dont know how i can refactor that into the Utils
 	$PlayerUI/Menu/GridContainer/FightButton.grab_focus()
 	#spawn enemy Pokemon
+	print(BattleSpawner.enemy_Pokemon)
 	var pokemon_scene = Utils.pokemon_scenes.get(BattleSpawner.enemy_Pokemon, null)
 	if pokemon_scene:
-		instantiateEnemyPokemon()
+		var enemyPokemon = pokemon_scene.instantiate()
+		$enemySpawnArea.add_child(enemyPokemon)
 	else:
 		assert(ERR_BUG)
 	instantiatePlayerPokemon()
 	#await get_tree().create_timer(1.7).timeout
 	
 func instantiatePlayerPokemon(name : String = Game.playerPokeMons[0][\"Name\"] ) -> void:
+	print(name)
 	playerPokemon = Utils.pokemon_scenes[name].instantiate()
 	$playerSpawnArea.add_child(playerPokemon)
-	
-func instantiateEnemyPokemon() -> void:
-	enemyPokemon = Utils.pokemon_scenes[BattleSpawner.enemy_Pokemon].instantiate()
-	$enemySpawnArea.add_child(enemyPokemon)
 
 func freePlayerPokemon() -> void:
 	$playerSpawnArea.remove_child(playerPokemon)
 	playerPokemon.queue_free()
 
-func freeEnemyPokemon() -> void: 
-	$enemySpawnArea.remove_child(enemyPokemon)
-	enemyPokemon.queue_free()
-	#enemyPokemon.queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -235,27 +230,32 @@ columns = 3
 layout_mode = 2
 focus_neighbor_left = NodePath("../Pokemon6")
 focus_neighbor_bottom = NodePath("../Back")
+text = "Pokemon2"
 
 [node name="Pokemon3" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Pokemon6")
 focus_neighbor_right = NodePath("../Back")
+text = "Pokemon4"
 
 [node name="Pokemon4" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../Pokemon6")
 focus_neighbor_bottom = NodePath("../Back")
+text = "Pokemon5"
 
 [node name="Pokemon5" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Pokemon6")
 focus_neighbor_right = NodePath("../Back")
+text = "Pokemon3"
 
 [node name="Pokemon6" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
 layout_mode = 2
 focus_neighbor_right = NodePath("../Pokemon2")
 focus_neighbor_bottom = NodePath("../Pokemon5")
 action_mode = 0
+text = "Pokemon1"
 
 [node name="Back" type="Button" parent="PlayerUI/SwitchMenu/GridContainer"]
 layout_mode = 2
@@ -308,14 +308,14 @@ anchors_preset = 0
 scale = Vector2(0.4, 0.4)
 script = ExtResource("3_tnnoc")
 
-[node name="Info" type="Label" parent="MonsterUI"]
+[node name="Name" type="Label" parent="MonsterUI"]
 layout_mode = 0
-offset_left = 7.50003
-offset_top = 7.50002
-offset_right = 167.5
-offset_bottom = 30.5
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 31.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "pokemonName Lvl X"
+text = "pokemonName"
 
 [node name="HPBar" type="ProgressBar" parent="MonsterUI"]
 layout_mode = 0
@@ -337,6 +337,14 @@ offset_bottom = 59.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "X/X
 "
+
+[node name="Lvl" type="Label" parent="MonsterUI"]
+offset_left = 162.0
+offset_top = 8.0
+offset_right = 207.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = " Lvl X"
 
 [node name="UI" parent="." instance=ExtResource("3_v3w28")]
 visible = false

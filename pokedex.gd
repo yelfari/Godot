@@ -45,6 +45,7 @@ func _on_fire_pokemon_filter_focus_entered() -> void:
 			new_element.changeHPBar(Game.playerPokeMons[i]["CurrentHealth"])
 			new_element.changeXPBar(Game.playerPokeMons[i]["Xp"])
 			new_element.changeName(Game.playerPokeMons[i]["Name"])
+			new_element.changeID(Game.playerPokeMons[i]["ID"])
 
 func _on_water_pokemon_filter_focus_entered() -> void:
 	clearElements()
@@ -58,6 +59,7 @@ func _on_water_pokemon_filter_focus_entered() -> void:
 			new_element.changeHPBar(Game.playerPokeMons[i]["CurrentHealth"])
 			new_element.changeXPBar(Game.playerPokeMons[i]["Xp"])
 			new_element.changeName(Game.playerPokeMons[i]["Name"])	
+			new_element.changeID(Game.playerPokeMons[i]["ID"])
 
 func _on_plant_pokemon_filter_focus_entered() -> void:
 	clearElements()
@@ -71,6 +73,7 @@ func _on_plant_pokemon_filter_focus_entered() -> void:
 			new_element.changeHPBar(Game.playerPokeMons[i]["CurrentHealth"])
 			new_element.changeXPBar(Game.playerPokeMons[i]["Xp"])
 			new_element.changeName(Game.playerPokeMons[i]["Name"])	
+			new_element.changeID(Game.playerPokeMons[i]["ID"])
 
 func _on_lightning_pokemon_filter_focus_entered() -> void:
 	clearElements()
@@ -84,6 +87,7 @@ func _on_lightning_pokemon_filter_focus_entered() -> void:
 			new_element.changeHPBar(Game.playerPokeMons[i]["CurrentHealth"])
 			new_element.changeXPBar(Game.playerPokeMons[i]["Xp"])
 			new_element.changeName(Game.playerPokeMons[i]["Name"])	
+			new_element.changeID(Game.playerPokeMons[i]["ID"])
 
 func _on_flight_pokemon_filter_focus_entered() -> void:
 	clearElements()
@@ -97,6 +101,7 @@ func _on_flight_pokemon_filter_focus_entered() -> void:
 			new_element.changeHPBar(Game.playerPokeMons[i]["CurrentHealth"])
 			new_element.changeXPBar(Game.playerPokeMons[i]["Xp"])
 			new_element.changeName(Game.playerPokeMons[i]["Name"])	
+			new_element.changeID(Game.playerPokeMons[i]["ID"])
 
 func clearElements() -> void: 
 	for child in $GridContainer/GridContainer.get_children():

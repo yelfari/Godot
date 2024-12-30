@@ -3,6 +3,7 @@ extends Node
 var battle_scene = preload("res://BattleScene/Battle.tscn")
 var ui_scene = preload("res://player/ui.tscn")
 var enemy_Pokemon : String
+var enemy_PokemonLvl : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

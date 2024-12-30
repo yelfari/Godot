@@ -3,10 +3,10 @@ extends Node
 func _ready():
 	Game.addPokemon("Plinfa")
 	Game.addPokemon("Pikachu")
-	Game.addPokemon("Schiggy")
-	Game.addPokemon("Glumanda")
-	Game.addPokemon("Plinfa")
-	Game.addPokemon("Glumanda")
+	Game.addPokemon("Tragosso")
+	Game.addPokemon("Taubsi")
+	Game.addPokemon("Pummeluff")
+	Game.addPokemon("Raupy")
 
 var dataBasePokemon = {
 	
@@ -435,9 +435,7 @@ var dataBasePokemon = {
 				}
 			}
 		}
-	
-	
-	
+
 }
 
 var playerPokeMons = {
@@ -448,7 +446,7 @@ func addPokemon(Name):
 	for i in dataBasePokemon:
 		if dataBasePokemon[i]["Name"] == Name:
 			var tempDic = dataBasePokemon[i].duplicate(true)
-			var random_ID = randi()
+			var random_ID = randi() % 1000000
 			tempDic["ID"] = random_ID
 			playerPokeMons[playerPokeMons.size()] = tempDic
 
@@ -460,7 +458,6 @@ func addEXP(amount) -> void:
 			amount -= playerPokeMons[i]["MaxXp"]
 			playerPokeMons[i]["MaxXp"] = playerPokeMons[i]["MaxXp"] + 5
 		playerPokeMons[i]["Xp"] = amount	
-
 
 func getEnemyPokemonEntry(pokemonName):
 	#print_debug(playerPokeMons)
@@ -485,7 +482,7 @@ func changeSelectedPokemon() -> void:
 	pass
 
 var pokemon_levelMap = {
-	"Level1": ["Serpifeu"],
+	"Level1": ["Serpifeu", "Glumanda", "Plinfa"],
 	"Level2": ["Geodude", "Onix", "Machop"],
 	"Level3": ["Squirtle", "Psyduck", "Magikarp"]
 }

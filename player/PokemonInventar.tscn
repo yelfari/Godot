@@ -136,11 +136,13 @@ layout_mode = 2
 color = Color(0.243137, 0.172549, 0.172549, 0.521569)
 
 [node name="PokemonTexture" type="TextureRect" parent="UIControl/GridContainer/Pokemon0Container"]
+layout_mode = 0
 offset_right = 18.0
 offset_bottom = 20.0
 expand_mode = 2
 
 [node name="PokemonHP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon0Container"]
+layout_mode = 0
 offset_left = 36.0
 offset_top = 3.0
 offset_right = 58.0
@@ -151,6 +153,7 @@ value = 20.0
 show_percentage = false
 
 [node name="PokemonName" type="Label" parent="UIControl/GridContainer/Pokemon0Container"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 1.0
 offset_right = 133.0
@@ -159,6 +162,7 @@ scale = Vector2(0.1, 0.1)
 text = "Pokemon Name"
 
 [node name="PokemonHPText" type="Label" parent="UIControl/GridContainer/Pokemon0Container"]
+layout_mode = 0
 offset_left = 52.0
 offset_top = 6.0
 offset_right = 112.0
@@ -167,6 +171,7 @@ scale = Vector2(0.1, 0.1)
 text = "X/X HP"
 
 [node name="PokemonXP" type="ProgressBar" parent="UIControl/GridContainer/Pokemon0Container"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 18.0
 offset_right = 58.0
@@ -177,6 +182,7 @@ value = 20.0
 show_percentage = false
 
 [node name="PokemonXPText" type="Label" parent="UIControl/GridContainer/Pokemon0Container"]
+layout_mode = 0
 offset_left = 54.0
 offset_top = 15.0
 offset_right = 114.0
@@ -578,7 +584,7 @@ offset_right = 1960.0
 offset_bottom = 62.0
 scale = Vector2(0.1, 0.1)
 theme_override_font_sizes/font_size = 38
-text = " Pokemon Inventory"
+text = "Pokemon Team"
 
 [node name="BigPokemonDescriptor" type="ColorRect" parent="."]
 clip_contents = true

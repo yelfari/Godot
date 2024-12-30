@@ -1,17 +1,17 @@
 extends Control
 
-var attackDict = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var key_for_pokemon = -1
+	var pokemonDictKey = -1
 	for key in Game.dataBasePokemon.keys():
 		if Game.dataBasePokemon[key]["Name"] == BattleSpawner.enemy_Pokemon:
-			key_for_pokemon = key
-			print_debug("key: " , key_for_pokemon)
+			pokemonDictKey = key
+			print_debug("key: " , pokemonDictKey)
 			break
-	$HPBar.value = Game.dataBasePokemon[key_for_pokemon]["Health"]
-	$Info.text = str(Game.dataBasePokemon[key_for_pokemon]["Name"]) + " L" + str(Game.dataBasePokemon[key_for_pokemon]["lvl"])
-	$HpText.text = str(Game.dataBasePokemon[key_for_pokemon]["Health"])
+	$HPBar.value = Game.dataBasePokemon[pokemonDictKey]["Health"]
+	$Info.text = str(Game.dataBasePokemon[pokemonDictKey]["Name"]) + " L" + str(Game.dataBasePokemon[pokemonDictKey]["lvl"])
+	$HpText.text = str(Game.dataBasePokemon[pokemonDictKey]["Health"])
+	BattleSpawner.enemy_PokemonLvl = Game.dataBasePokemon[pokemonDictKey]["lvl"]
 	if !TurnController.myTurn:
 		$"..".enemyAttack()
 

@@ -26,23 +26,23 @@ script = ExtResource("1_jnqnm")
 clip_contents = true
 custom_minimum_size = Vector2(20, 10)
 layout_mode = 0
-offset_right = 44.0
-offset_bottom = 31.0
+offset_right = 23.0
+offset_bottom = 18.0
 color = Color(0.243137, 0.172549, 0.172549, 0.521569)
 
 [node name="PokemonTexture" type="TextureRect" parent="Pokemon0Container"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 4.0
-offset_right = 29.0
-offset_bottom = 26.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 15.0
+offset_bottom = 14.0
 expand_mode = 2
 
 [node name="PokemonHP" type="ProgressBar" parent="Pokemon0Container"]
 layout_mode = 0
-offset_top = 27.0
-offset_right = 44.0
-offset_bottom = 29.0
+offset_top = 14.0
+offset_right = 23.0
+offset_bottom = 16.0
 theme_override_styles/background = SubResource("StyleBoxFlat_hwxa1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6k06p")
 value = 20.0
@@ -50,27 +50,27 @@ show_percentage = false
 
 [node name="PokemonName" type="Label" parent="Pokemon0Container"]
 layout_mode = 0
-offset_left = 18.0
-offset_right = 278.0
+offset_right = 247.0
 offset_bottom = 45.0
 scale = Vector2(0.1, 0.1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Pokemon Name"
 
 [node name="PokemonXP" type="ProgressBar" parent="Pokemon0Container"]
 layout_mode = 0
-offset_top = 29.0
-offset_right = 44.0
-offset_bottom = 31.0
+offset_top = 16.0
+offset_right = 23.0
+offset_bottom = 18.0
 theme_override_styles/background = SubResource("StyleBoxFlat_a3utx")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ekn11")
 value = 20.0
 show_percentage = false
 
 [node name="Pokemon0Button" type="Button" parent="Pokemon0Container"]
+visible = false
 layout_mode = 0
-offset_right = 44.0
-offset_bottom = 31.0
+offset_right = 23.0
+offset_bottom = 18.0
 focus_neighbor_left = NodePath("../../Pokemon2Container/Pokemon2Button")
 focus_neighbor_top = NodePath("../../Pokemon3Container/Pokemon3Button")
 focus_neighbor_right = NodePath("../../Pokemon1Container/Pokemon1Button")
@@ -79,10 +79,10 @@ flat = true
 
 [node name="PokemonID" type="Label" parent="Pokemon0Container"]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 4.0
-offset_right = 90.0
-offset_bottom = 34.0
+offset_left = 16.0
+offset_top = 11.0
+offset_right = 86.0
+offset_bottom = 41.0
 scale = Vector2(0.1, 0.1)
 text = "ID"
 

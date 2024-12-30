@@ -14,11 +14,19 @@ var pokemon_scenes = {
 	"Rattfratz": preload("res://Pokemons/RattfratzOrdner/Rattfratz.tscn"),
 	"Serpifeu": preload("res://Pokemons/SerpifeuOrdner/Serpifeu.tscn"),
 }
+
 var pokemon_soloTexture = {
-	"Plinfa": load("res://art/Pokemon/Solo/PlinfaSolo.png"),
-	"Pikachu": load("res://art/Pokemon/Solo/PikachuSolo.png"),
-	"Schiggy": load("res://art/Pokemon/Solo/SchiggySolo.png"),
-	"Glumanda": load("res://art/Pokemon/Solo/GlumandaSolo.png")
+	"Plinfa": load("res://art/Pokemon/Solo/PlinfaSolo.png"),		#1
+	"Pikachu": load("res://art/Pokemon/Solo/PikachuSolo.png"),		#2
+	"Schiggy": load("res://art/Pokemon/Solo/SchiggySolo.png"),		#3
+	"Glumanda": load("res://art/Pokemon/Solo/GlumandaSolo.png"),	#4
+	"Pummeluff": load("res://art/Pokemon/Solo/PummeluffSolo.png"),	#5
+	"Quapsel": load("res://art/Pokemon/Solo/QuapselSolo.png"),		#6
+	"Rattfratz": load("res://art/Pokemon/Solo/RattfratzSolo.png"),	#7
+	"Taubsi": load("res://art/Pokemon/Solo/TaubsiSolo.png"),		#8
+	"Tragosso": load("res://art/Pokemon/Solo/TragossoSolo.png"),	#9
+	"Raupy": load("res://art/Pokemon/Solo/RaupySolo.png"),			#10
+	"Serpifeu": load("res://art/Pokemon/Solo/SerpifeuSolo.png")		#11
 }
 
 var gamePaused : bool = false
