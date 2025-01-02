@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://m3b1ho7lyq2"]
+[gd_scene load_steps=10 format=3 uid="uid://m3b1ho7lyq2"]
 
 [ext_resource type="Texture2D" uid="uid://btymsajrhuh3q" path="res://art/MainMenuSprites/worldMap.png" id="1_clgu1"]
 [ext_resource type="Texture2D" uid="uid://b1l1usw64lkkf" path="res://art/MainMenuSprites/BagPack.png" id="1_e0qpr"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://chkvscqf5qhad" path="res://art/MainMenuSprites/pokedex.png" id="2_r6wk3"]
 [ext_resource type="Texture2D" uid="uid://cobgxufv4evm5" path="res://art/MainMenuSprites/pokemonTeam.png" id="4_pbvhq"]
 [ext_resource type="Texture2D" uid="uid://bu11oap1gpg0v" path="res://art/MainMenuSprites/closeButton.png" id="6_x8upr"]
+[ext_resource type="Texture2D" uid="uid://b4j7yi3dslli4" path="res://art/Ninja Adventure - Asset Pack/Ui/Theme/ThemeWood/arrow_left.png" id="7_n1c7m"]
+[ext_resource type="Texture2D" uid="uid://diltl12oej4tc" path="res://art/Ninja Adventure - Asset Pack/Ui/Theme/ThemeWood/arrow_right.png" id="8_6pq1w"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0qnwt"]
 
@@ -163,6 +165,32 @@ focus_neighbor_top = NodePath("../../openPokedex/openPokedexButton")
 focus_neighbor_right = NodePath("../../openPokemonTeam/openPokemonTeamButton")
 focus_neighbor_bottom = NodePath("../../openMap/openMapButton")
 flat = true
+
+[node name="ArrowLeft" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(103, 71)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_n1c7m")
+
+[node name="ArrowRight" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(135, 71)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_6pq1w")
+
+[node name="ArrowRight2" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(120, 82)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_6pq1w")
+
+[node name="ArrowRight3" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(120, 60)
+rotation = 4.71239
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_6pq1w")
 
 [connection signal="focus_entered" from="Backgrounds/openPokedex/openPokedexButton" to="." method="_on_open_pokedex_button_focus_entered"]
 [connection signal="focus_entered" from="Backgrounds/openPokemonTeam/openPokemonTeamButton" to="." method="_on_open_pokemon_team_button_focus_entered"]
