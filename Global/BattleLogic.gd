@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func changeLabel(button):
 	print_debug(button)
-	button.text = "HIII"
+	button.text = "HIIII"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
